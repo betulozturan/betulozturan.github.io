@@ -16,7 +16,7 @@ My most recent publication, *“From Conflict to Consensus: Power-Sharing and th
 Education
 ======
 
-Before starting my Ph.D. in the U.S., I completed a **double M.A.** through the Erasmus Mundus program in Europe. I earned an M.A. in *International Security Studies* from **Charles University** in Prague, and another in *Political Science and Public Administration* from the **University of Konstanz** in Germany. My master’s thesis introduced the **POLVITED dataset**—a merged conflict event database for Türkiye—where I applied **machine learning** and **spatial visualization** to track patterns in political violence. I also participated in the **ICPSR Summer Program** at the University of Michigan and the **Summer Institute in Computational Social Science (SICSS)**.
+Before starting my Ph.D. in the U.S., I completed a **double M.A.** in *International Security Studies* from **Charles University** in Prague, and another in *Political Science and Public Administration* from the **University of Konstanz** in Germany. My master’s thesis introduced the **POLVITED dataset**—a merged conflict event database for Türkiye—where I applied **machine learning** and **spatial visualization** to track patterns in political violence. I also participated in the **ICPSR Summer Program** at the University of Michigan and the **Summer Institute in Computational Social Science (SICSS)**.
 
 I hold a B.A. in **Political Science and International Relations** from **Boğaziçi University** in Istanbul, where I also minored in Economics and spent a semester at **The American University in Cairo** as an exchange student.
 
@@ -35,7 +35,7 @@ Over the past four years, I’ve taught and assisted in a range of undergraduate
 
 ## Other things I do
 
-In addition to my dissertation work, I’ve conducted field research in **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **Clough Center for the Study of Constitutional Democracy**, **Brandeis University**, and the **German Academic Exchange Service (DAAD)**.
+In addition to my dissertation work, I’ve conducted field research in **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
 
 
 If you're interested in my work, want to collaborate, or just want to chat about rebel group strategies or visualizing conflict data —feel free to reach out!
