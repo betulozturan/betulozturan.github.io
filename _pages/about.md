@@ -41,5 +41,5 @@ In addition to my dissertation work, I’ve conducted field research in **Ukrain
 If you're interested in my work, want to collaborate, or just want to chat about rebel group strategies or visualizing conflict data —feel free to reach out!
 
 📫 [ozturan@bc.edu](mailto:ozturan@bc.edu)  
-📄 [View my CV](assets/Betul_Ozturan.pdf)
+📄 [View my CV](files/Betul_Ozturan.pdf)
 
