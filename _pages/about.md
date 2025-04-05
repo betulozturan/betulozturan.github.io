@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About Me"
+title: "About Betul"
 author_profile: true
 redirect_from: 
   - /about/
