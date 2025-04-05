@@ -1,18 +1,22 @@
-- title: "Introduction to International Relations"
+---
+title: "Introduction to International Relations"
   collection: teaching
   type: "Teaching"
   permalink: /teaching/2025-01-01-intro-ir-krause
   venue: "Boston College, with Prof. Peter Krause"
   date: 2025-01-01
   location: "Chestnut Hill, MA, USA"
+---
 
-- title: "Introduction to International Relations"
+---
+title: "Introduction to International Relations"
   collection: teaching
   type: "Teaching"
   permalink: /teaching/2024-01-01-intro-ir-erickson
   venue: "Boston College, with Prof. Jennifer Erickson"
   date: 2024-01-01
   location: "Chestnut Hill, MA, USA"
+---
 
 - title: "Global Governance"
   collection: teaching
