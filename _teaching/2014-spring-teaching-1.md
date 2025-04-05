@@ -3,6 +3,7 @@
 **Introduction to International Relations**  
   *Boston College, Spring 2025 – with Prof. Peter Krause*  
   Chestnut Hill, MA, USA
+  
 **Introduction to International Relations**  
   *Boston College, Spring 2024 – with Prof. Jennifer Erickson*  
   Chestnut Hill, MA, USA
