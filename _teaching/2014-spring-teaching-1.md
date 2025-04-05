@@ -1,53 +1,27 @@
----
-title: "Introduction to International Relations"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2025-01-01-intro-ir-krause
-  venue: "Boston College, with Prof. Peter Krause"
-  date: 2025-01-01
-  location: "Chestnut Hill, MA, USA"
----
+### Teaching Experience
 
----
-title: "Introduction to International Relations"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2024-01-01-intro-ir-erickson
-  venue: "Boston College, with Prof. Jennifer Erickson"
-  date: 2024-01-01
-  location: "Chestnut Hill, MA, USA"
----
+- **Introduction to International Relations**  
+  *Boston College, Spring 2025 – with Prof. Peter Krause*  
+  Chestnut Hill, MA, USA
 
-- title: "Global Governance"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2023-01-01-global-governance
-  venue: "Boston College, with Prof. Jennifer Erickson"
-  date: 2023-01-01
-  location: "Chestnut Hill, MA, USA"
+- **Introduction to International Relations**  
+  *Boston College, Spring 2024 – with Prof. Jennifer Erickson*  
+  Chestnut Hill, MA, USA
 
-- title: "Internet and Politics"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2022-01-01-internet-politics
-  venue: "Brandeis University, with Prof. Steven Wilson"
-  date: 2022-01-01
-  location: "Waltham, MA, USA"
+- **Global Governance**  
+  *Boston College, Spring 2023 – with Prof. Jennifer Erickson*  
+  Chestnut Hill, MA, USA
 
-- title: "Python Block Course"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2019-10-01-python-konstanz
-  venue: "University of Konstanz, with Prof. Karsten Donnay"
-  date: 2019-10-01
-  location: "Konstanz, Germany"
-  excerpt: "Guided over 50 M.A. students in Social and Economic Data Science through daily Python assignments and foundational programming concepts."
+- **Internet and Politics**  
+  *Brandeis University, Spring 2022 – with Prof. Steven Wilson*  
+  Waltham, MA, USA
 
-- title: "Introduction to Turkish Politics"
-  collection: teaching
-  type: "Teaching"
-  permalink: /teaching/2017-10-01-turkish-politics
-  venue: "Boğaziçi University, with Prof. Hakan Yılmaz"
-  date: 2017-10-01
-  location: "Istanbul, Turkey"
-  excerpt: "Led weekly discussions and provided student support in a foundational seminar on Turkish politics."
+- **Python Block Course**  
+  *University of Konstanz, October 2019 – with Prof. Karsten Donnay*  
+  Konstanz, Germany  
+  _Guided 50+ M.A. students in Python for Social and Economic Data Science. Graded daily assignments._
+
+- **Introduction to Turkish Politics**  
+  *Boğaziçi University, October 2017 – with Prof. Hakan Yılmaz*  
+  Istanbul, Turkey  
+  _Led weekly discussion sessions and supported student learning in Turkish political history._
