@@ -1,7 +1,7 @@
 --- 
 title: "Mapping Political Violence in Turkey: When Terrorism and Civil War Converge"
 collection: publications
-category: manuscripts
+category: conferences
 permalink: /publication/2024-01-01-political-violence-turkey
 excerpt: 'This paper investigates the convergence between terrorism and civil war in Turkey using merged event datasets and spatial-temporal analysis.'
 date: 2024-01-01
