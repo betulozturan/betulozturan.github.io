@@ -11,7 +11,7 @@ Hi! I’m **Betul Ozturan**, a Ph.D. candidate in Political Science at **Boston 
 
 My dissertation project investigates **rebel group alliances** and their long-term influence on postwar governance. To do this, I combine computational methods—like **text analysis**, **social network analysis**, and **event data modeling** with case studies in places like Bosnia and Syria. I also work with large datasets on political violence, often building tools that help researchers and the public better understand conflict dynamics.
 
-My most recent publication, *“From Conflict to Consensus: Power-Sharing and the Path to Democracy”*, was featured in the **Clough Center Journal** (2025).
+My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was featured in the **Terrorism & Political Violence** (2025).
 
 Education
 ======
