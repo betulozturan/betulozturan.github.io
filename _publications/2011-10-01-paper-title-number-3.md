@@ -1,11 +1,11 @@
 ---
-title: "From Conflict to Consensus: Power-Sharing and the Path to Democracy"
+title: "How Students and the Public Define Terrorism, and How Education Affects Those Definitions"
 collection: publications
 category: manuscripts
 permalink: /publication/2025-01-01-conflict-to-consensus
 excerpt: 'This paper explores how institutional power-sharing arrangements influence democratic development in post-conflict settings.'
-date: 2025-04-01
-venue: 'Clough Center Journal'
-paperurl: 'http://academicpages.github.io/files/paper_conflict_to_consensus.pdf'
-citation: 'Ozturan, Betul. (2025). "From Conflict to Consensus: Power-Sharing and the Path to Democracy." <i>Clough Center Journal</i>, 3, 93–99.'
+date: 2025-07-09
+venue: 'Terrorism and Political Violence'
+paperurl: 'https://doi.org/10.1080/09546553.2025.2509130'
+citation: 'Krause, P., Özturan, B., & Young, L. (2025). How Students and the Public Define Terrorism, and How Education Affects Those Definitions. Terrorism and Political Violence, 1–20. https://doi.org/10.1080/09546553.2025.2509130'
 ---
