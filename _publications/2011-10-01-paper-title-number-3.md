@@ -2,8 +2,8 @@
 title: "How Students and the Public Define Terrorism, and How Education Affects Those Definitions"
 collection: publications
 category: manuscripts
-permalink: /publication/2025-01-01-conflict-to-consensus
-excerpt: 'This paper explores how institutional power-sharing arrangements influence democratic development in post-conflict settings.'
+permalink: 
+excerpt: ''
 date: 2025-07-09
 venue: 'Terrorism and Political Violence'
 paperurl: 'https://doi.org/10.1080/09546553.2025.2509130'
