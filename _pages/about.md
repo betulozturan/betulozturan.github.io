@@ -15,7 +15,7 @@ What is going on?
 ======
 My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was published in the **Terrorism & Political Violence** (2025).
 
-I will be presenting my research on rebel relations at **IC2S2 July 23, 2025 (virtual)**, **PolNet 2025 at Harvard****, **APSA 2025 (virtual)**, and **CRS 2025 (in Kent, UK)**. 
+I will be presenting my research on rebel relations at **IC2S2 July 23, 2025 (virtual)**, **PolNet 2025 at Harvard**, **APSA 2025 (virtual)**, and **CRS 2025 (in Kent, UK)**. 
 
 I have completed **Network Analysis I** and **Data visualization** courses at ICPSR, and currently studying **Network Analysis II** with the support of EITM scholarship. 
 
