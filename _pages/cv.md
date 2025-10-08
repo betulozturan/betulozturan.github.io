@@ -33,4 +33,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Organizer of VIP Workshops 2025
