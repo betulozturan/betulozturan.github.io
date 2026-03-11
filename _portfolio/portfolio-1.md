@@ -1,7 +1,9 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Estimating the Accurate Numbers of Political Violence in Turkey by Merging Conflict Event Datasets"
+excerpt: "A data project that merges multiple conflict event datasets (ACLED, UCDP, GTD) to produce more accurate estimates of political violence incidents in Turkey."
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+This project addresses the challenge of undercounting and inconsistencies in political violence data for Turkey by merging and reconciling records from multiple conflict event datasets, including ACLED, UCDP, and GTD.
+
+[View Project](https://betulozturan.github.io/ESTIMATING-THE-ACCURATE-NUMBERS-OF-POLITICAL-VIOLENCE-IN-TURKEY-BY-MERGING-CONFLICT-EVENT-DATASETS-M/){: .btn .btn--primary}
