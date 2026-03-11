@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuclear Debate Timer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e03030;
+    --red-dim: #7a1515;
+    --red-glow: rgba(224,48,48,0.25);
+    --blue: #1e78e8;
+    --blue-dim: #0c3a73;
+    --blue-glow: rgba(30,120,232,0.25);
+    --gold: #c8a230;
+    --gold-dim: #5c4710;
+    --gold-glow: rgba(200,162,48,0.25);
+    --bg: #080c10;
+    --surface: #0d1319;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0f2f5;
+    --muted: #9aa3b2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow Condensed', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* scanline overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    color: var(--text);
+  }
+
+  .header-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ===== PHASE RAIL ===== */
+  .phase-rail {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 28px;
+    scrollbar-width: none;
+  }
+  .phase-rail::-webkit-scrollbar { display: none; }
+
+  .phase-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    gap: 2px;
+    opacity: 0.55;
+  }
+  .phase-chip.done { opacity: 0.45; }
+  .phase-chip.active { opacity: 1; }
+  .phase-chip.active.red  { border-bottom-color: var(--red); }
+  .phase-chip.active.blue { border-bottom-color: var(--blue); }
+  .phase-chip.active.gold { border-bottom-color: var(--gold); }
+  .phase-chip.active.neutral { border-bottom-color: #aaa; }
+
+  .phase-chip .chip-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+  .phase-chip .chip-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #f0f2f5;
+  }
+  .phase-chip .chip-dur {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+  }
+
+  /* ===== MAIN STAGE ===== */
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 24px;
+    gap: 32px;
+  }
+
+  .phase-headline {
+    text-align: center;
+  }
+  .phase-headline .phase-number {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    color: #b8c0cc;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .phase-headline h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+  .phase-headline .phase-desc {
+    font-size: 1rem;
+    color: #b8c0cc;
+    font-weight: 400;
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  /* Color classes for headlines */
+  .col-red h2  { color: var(--red); }
+  .col-blue h2 { color: var(--blue); }
+  .col-gold h2 { color: var(--gold); }
+  .col-neutral h2 { color: #ccc; }
+
+  /* ===== BIG CLOCK ===== */
+  .clock-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .clock {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(6rem, 18vw, 11rem);
+    line-height: 1;
+    letter-spacing: 6px;
+    transition: color 0.4s;
+    text-shadow: 0 0 60px currentColor;
+  }
+  .col-red    .clock { color: var(--red); }
+  .col-blue   .clock { color: var(--blue); }
+  .col-gold   .clock { color: var(--gold); }
+  .col-neutral .clock { color: #ccc; }
+
+  .clock.urgent {
+    animation: pulse 0.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .progress-bar-wrap {
+    width: min(480px, 80vw);
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .progress-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s linear, background 0.4s;
+  }
+  .col-red    .progress-bar { background: var(--red); }
+  .col-blue   .progress-bar { background: var(--blue); }
+  .col-gold   .progress-bar { background: var(--gold); }
+  .col-neutral .progress-bar { background: #aaa; }
+
+  /* ===== GROUP PANELS ===== */
+  .group-panels {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  .group-card {
+    flex: 1 1 220px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .group-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .group-card.active::before { opacity: 1; }
+
+  .group-card.red-card  { border-color: rgba(224,48,48,0.4); }
+  .group-card.blue-card { border-color: rgba(30,120,232,0.4); }
+  .group-card.gold-card { border-color: rgba(200,162,48,0.4); }
+
+  .group-card.red-card::before  { background: var(--red-glow); }
+  .group-card.blue-card::before { background: var(--blue-glow); }
+  .group-card.gold-card::before { background: var(--gold-glow); }
+
+  .group-card.active {
+    transform: translateY(-2px);
+  }
+  .group-card.active.red-card  { box-shadow: 0 0 28px var(--red-glow); }
+  .group-card.active.blue-card { box-shadow: 0 0 28px var(--blue-glow); }
+  .group-card.active.gold-card { box-shadow: 0 0 28px var(--gold-glow); }
+
+  .group-card .card-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .red-card  .card-tag { color: var(--red); }
+  .blue-card .card-tag { color: var(--blue); }
+  .gold-card .card-tag { color: var(--gold); }
+
+  .group-card .card-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    position: relative;
+    color: #f0f2f5;
+  }
+  .group-card .card-status {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #b8c0cc;
+    margin-top: 4px;
+    position: relative;
+    letter-spacing: 0.5px;
+    min-height: 1em;
+  }
+
+  /* ===== CONTROLS ===== */
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border: 1px solid;
+    border-radius: 2px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn-primary:hover { background: rgba(255,255,255,0.1); }
+  .btn-secondary {
+    border-color: var(--muted);
+    color: var(--muted);
+  }
+  .btn-secondary:hover { border-color: #fff; color: #fff; }
+
+  .btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Completion screen */
+  .completion {
+    text-align: center;
+    padding: 60px 24px;
+  }
+  .completion h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-shadow: 0 0 40px var(--gold-glow);
+  }
+  .completion p {
+    color: var(--muted);
+    margin-top: 12px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  /* Grid background decoration */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  header, .phase-rail, .stage { position: relative; z-index: 1; }
+
+  /* Divider atom icon decoration */
+  .atom-deco { font-size: 1.2rem; color: var(--muted); opacity: 0.3; }
+
+  /* ===== BRIEFING OVERLAY ===== */
+  #briefing {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 500;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 60px;
+    gap: 32px;
+  }
+  #briefing .brief-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    letter-spacing: 6px;
+    color: #f0f2f5;
+    text-align: center;
+    line-height: 1;
+  }
+  #briefing .brief-title span { color: var(--gold); }
+  #briefing .brief-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    color: #9aa3b2;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -16px;
+  }
+  .brief-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 960px;
+  }
+  .brief-card {
+    flex: 1 1 260px;
+    border-radius: 4px;
+    padding: 22px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .brief-card.pro    { border-color: rgba(224,48,48,0.5); }
+  .brief-card.anti   { border-color: rgba(30,120,232,0.5); }
+  .brief-card.bureau { border-color: rgba(200,162,48,0.5); }
+  .brief-card .bc-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .brief-card.pro    .bc-tag { color: var(--red); }
+  .brief-card.anti   .bc-tag { color: var(--blue); }
+  .brief-card.bureau .bc-tag { color: var(--gold); }
+  .brief-card .bc-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: #f0f2f5;
+    margin-bottom: 10px;
+  }
+  .brief-card .bc-role {
+    font-size: 0.85rem;
+    color: #c8cdd6;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .brief-card .bc-role strong { color: #f0f2f5; font-weight: 700; }
+
+  .brief-notes {
+    width: 100%;
+    max-width: 960px;
+    background: var(--surface);
+    border: 1px solid rgba(200,162,48,0.35);
+    border-radius: 4px;
+    padding: 24px 28px;
+  }
+  .brief-notes .bn-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .brief-notes .bn-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: #f0f2f5;
+    margin-bottom: 20px;
+  }
+  .reading-block {
+    border-left: 2px solid rgba(255,255,255,0.12);
+    padding-left: 16px;
+    margin-bottom: 20px;
+  }
+  .reading-block:last-child { margin-bottom: 0; }
+  .reading-block .rb-author {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .reading-block .rb-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .reading-block .rb-points li {
+    font-size: 0.88rem;
+    color: #c8cdd6;
+    line-height: 1.55;
+    padding-left: 14px;
+    position: relative;
+  }
+  .reading-block .rb-points li::before { content: '›'; position: absolute; left: 0; color: #9aa3b2; }
+  .reading-block .rb-points li strong { color: #f0f2f5; }
+
+  .steps-grid { display: flex; flex-direction: column; gap: 0; }
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-row:last-child { border-bottom: none; }
+  .step-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 48px;
+    gap: 3px;
+    padding-top: 2px;
+  }
+  .step-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .step-dur {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: #9aa3b2;
+    white-space: nowrap;
+  }
+  .step-body { flex: 1; }
+  .step-label {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    margin-bottom: 3px;
+  }
+  .step-desc {
+    font-size: 0.83rem;
+    color: #c8cdd6;
+    line-height: 1.55;
+  }
+
+  .red-step   .step-num { color: var(--red); }
+  .blue-step  .step-num { color: var(--blue); }
+  .gold-step  .step-num { color: var(--gold); }
+  .neutral-step .step-num { color: #aaa; }
+
+  .red-step   .step-label { color: #f08080; }
+  .blue-step  .step-label { color: #7ab8f5; }
+  .gold-step  .step-label { color: var(--gold); }
+  .neutral-step .step-label { color: #ddd; }
+
+  #briefing .start-btn {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    padding: 14px 56px;
+    border: 1px solid #f0f2f5;
+    color: #f0f2f5;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  #briefing .start-btn:hover { background: rgba(255,255,255,0.08); }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- BRIEFING SCREEN -->
+<div id="briefing">
+  <div>
+    <div class="brief-title">⚛ Nuclear <span>Debate</span> Briefing</div>
+    <div class="brief-subtitle">Read before the timer begins</div>
+  </div>
+
+  <div class="brief-grid">
+    <div class="brief-card pro">
+      <div class="bc-tag">Group A &middot; Pro-Nuclear</div>
+      <div class="bc-name">Pro Nuclear</div>
+      <div class="bc-role">
+        Argue in favor of nuclear deterrence and the strategic value of nuclear arsenals.<br><br>
+        <strong>Your role:</strong> Defend nuclear weapons as stabilizing forces in international relations. Draw on Waltz's case that nuclear proliferation can reduce the likelihood of great-power war through mutual assured destruction. Challenge the feasibility and desirability of "nuclear zero."
+      </div>
+    </div>
+
+    <div class="brief-card anti">
+      <div class="bc-tag">Group B &middot; Anti-Nuclear</div>
+      <div class="bc-name">Anti Nuclear</div>
+      <div class="bc-role">
+        Argue for disarmament and the dangers of nuclear proliferation.<br><br>
+        <strong>Your role:</strong> Challenge the stability of deterrence. Draw on Sagan's arguments about organizational failures, accidents, and miscalculation. Use Lieber &amp; Press to show why first-strike temptations make deterrence increasingly fragile. Invoke the nuclear taboo as a norm worth protecting.
+      </div>
+    </div>
+
+    <div class="brief-card bureau">
+      <div class="bc-tag">Group C &middot; Bureaucracy</div>
+      <div class="bc-name">Bureaucracy</div>
+      <div class="bc-role">
+        Act as a neutral policy-making body evaluating both sides.<br><br>
+        <strong>Your role:</strong> Probe both groups with sharp, policy-relevant questions. Consider the nuclear taboo's durability (Tannenwald), deterrence credibility, and real-world constraints. Deliver a final decision with reasoning at the end of the debate.
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-notes" style="border-color: rgba(255,255,255,0.15);">
+    <div class="bn-tag">⏱ Debate Structure</div>
+    <div class="bn-title">Step-by-Step Format</div>
+    <div class="steps-grid">
+
+      <div class="step-row neutral-step">
+        <div class="step-meta">
+          <span class="step-num">01</span>
+          <span class="step-dur">5 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Prepare</div>
+          <div class="step-desc">All three groups read the brief, consolidate their position, and plan their opening argument. Use this time to assign speaking roles within your group and agree on your 2–3 core claims.</div>
+        </div>
+      </div>
+
+      <div class="step-row red-step">
+        <div class="step-meta">
+          <span class="step-num">02</span>
+          <span class="step-dur">4 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Pro-Nuclear Presents</div>
+          <div class="step-desc">The Pro-Nuclear group delivers their opening argument. Make your case for why nuclear deterrence is stabilizing, drawing on Waltz. Be direct and structured — no interruptions from other groups.</div>
+        </div>
+      </div>
+
+      <div class="step-row blue-step">
+        <div class="step-meta">
+          <span class="step-num">03</span>
+          <span class="step-dur">4 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Anti-Nuclear Presents</div>
+          <div class="step-desc">The Anti-Nuclear group delivers their opening argument. Make your case for disarmament and the dangers of proliferation, drawing on Sagan and the nuclear taboo. No interruptions.</div>
+        </div>
+      </div>
+
+      <div class="step-row neutral-step">
+        <div class="step-meta">
+          <span class="step-num">04</span>
+          <span class="step-dur">4 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Prep Q&amp;A</div>
+          <div class="step-desc">Pro and Anti groups privately prepare to answer questions. Anticipate the strongest objections to your position. The Bureaucracy group uses this time to finalize the questions they will pose.</div>
+        </div>
+      </div>
+
+      <div class="step-row red-step">
+        <div class="step-meta">
+          <span class="step-num">05</span>
+          <span class="step-dur">1:30</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Pro-Nuclear Asks</div>
+          <div class="step-desc">The Pro-Nuclear group directs questions at the Anti-Nuclear group. Questions should target weaknesses in their argument — e.g., how they would handle deterrence without nuclear weapons.</div>
+        </div>
+      </div>
+
+      <div class="step-row blue-step">
+        <div class="step-meta">
+          <span class="step-num">06</span>
+          <span class="step-dur">1:30</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Anti-Nuclear Asks</div>
+          <div class="step-desc">The Anti-Nuclear group directs questions at the Pro-Nuclear group. Press on accident risk, escalation dynamics, and the erosion of the nuclear taboo.</div>
+        </div>
+      </div>
+
+      <div class="step-row red-step">
+        <div class="step-meta">
+          <span class="step-num">07</span>
+          <span class="step-dur">4 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Pro-Nuclear Answers</div>
+          <div class="step-desc">Pro-Nuclear responds to the questions posed by Anti-Nuclear. Address objections directly and defend your position. This is your chance to rebut and clarify.</div>
+        </div>
+      </div>
+
+      <div class="step-row blue-step">
+        <div class="step-meta">
+          <span class="step-num">08</span>
+          <span class="step-dur">4 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Anti-Nuclear Answers</div>
+          <div class="step-desc">Anti-Nuclear responds to the questions posed by Pro-Nuclear. Address objections directly. Reinforce your core claims around safety, taboo, and disarmament.</div>
+        </div>
+      </div>
+
+      <div class="step-row gold-step">
+        <div class="step-meta">
+          <span class="step-num">09</span>
+          <span class="step-dur">3 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Bureaucracy Asks</div>
+          <div class="step-desc">The Bureaucracy group poses policy-focused questions to both sides. Questions should probe real-world feasibility, deterrence credibility, and the current state of the nuclear taboo.</div>
+        </div>
+      </div>
+
+      <div class="step-row red-step">
+        <div class="step-meta">
+          <span class="step-num">10</span>
+          <span class="step-dur">3 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Pro-Nuclear Responds</div>
+          <div class="step-desc">Pro-Nuclear answers the Bureaucracy's questions. Frame your response as policy advice — be concrete about what maintaining a nuclear arsenal achieves in practice.</div>
+        </div>
+      </div>
+
+      <div class="step-row blue-step">
+        <div class="step-meta">
+          <span class="step-num">11</span>
+          <span class="step-dur">3 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Anti-Nuclear Responds</div>
+          <div class="step-desc">Anti-Nuclear answers the Bureaucracy's questions. Offer concrete policy alternatives to deterrence and explain how disarmament strengthens rather than weakens security.</div>
+        </div>
+      </div>
+
+      <div class="step-row gold-step">
+        <div class="step-meta">
+          <span class="step-num">12</span>
+          <span class="step-dur">2 min</span>
+        </div>
+        <div class="step-body">
+          <div class="step-label">Bureau Final Decision</div>
+          <div class="step-desc">The Bureaucracy delivers its verdict — which group made the stronger case, and what policy recommendation follows. Explain your reasoning with reference to the arguments heard.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="start-btn" onclick="startDebate()">Begin Debate &#9654;</button>
+</div>
+
+<header>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <span style="font-size:1.4rem;">⚛️</span>
+    <h1>Nuclear Debate &middot; Timer</h1>
+  </div>
+  <div class="header-badge" id="liveLabel">● STANDBY</div>
+</header>
+
+<nav class="phase-rail" id="phaseRail"></nav>
+
+<main class="stage" id="stage"></main>
+
+<script>
+const PHASES = [
+  { id:0,  label:"Prepare",          desc:"All groups prepare arguments",               duration:300, color:"neutral", groups:["pro","anti","bureau"] },
+  { id:1,  label:"Pro Presents",     desc:"Pro-Nuclear presents opening argument",       duration:240, color:"red",     groups:["pro"] },
+  { id:2,  label:"Anti Presents",    desc:"Anti-Nuclear presents opening argument",      duration:240, color:"blue",    groups:["anti"] },
+  { id:3,  label:"Prep Q&A",         desc:"Pro & Anti prepare to answer questions",      duration:240, color:"neutral", groups:["pro","anti"] },
+  { id:4,  label:"Pro Asks",         desc:"Pro-Nuclear asks questions",                  duration:90,  color:"red",     groups:["pro"] },
+  { id:5,  label:"Anti Asks",        desc:"Anti-Nuclear asks questions",                 duration:90,  color:"blue",    groups:["anti"] },
+  { id:6,  label:"Pro Answers",      desc:"Pro-Nuclear answers questions",               duration:240, color:"red",     groups:["pro"] },
+  { id:7,  label:"Anti Answers",     desc:"Anti-Nuclear answers questions",              duration:240, color:"blue",    groups:["anti"] },
+  { id:8,  label:"Bureau Asks",      desc:"Bureaucracy poses questions",                 duration:180, color:"gold",    groups:["bureau"] },
+  { id:9,  label:"Pro Responds",     desc:"Pro-Nuclear responds to Bureaucracy",         duration:180, color:"red",     groups:["pro"] },
+  { id:10, label:"Anti Responds",    desc:"Anti-Nuclear responds to Bureaucracy",        duration:180, color:"blue",    groups:["anti"] },
+  { id:11, label:"Bureau Decision",  desc:"Bureaucracy delivers final decision",         duration:120, color:"gold",    groups:["bureau"] },
+];
+
+const GROUPS = {
+  pro:   { tag:"PRO-NUCLEAR",  name:"Pro Nuclear",  card:"red-card",  col:"col-red"  },
+  anti:  { tag:"ANTI-NUCLEAR", name:"Anti Nuclear", card:"blue-card", col:"col-blue" },
+  bureau:{ tag:"BUREAUCRACY",  name:"Bureaucracy",  card:"gold-card", col:"col-gold" },
+};
+
+let currentPhase = 0;
+let timeLeft = PHASES[0].duration;
+let running = false;
+let interval = null;
+
+function fmt(s) {
+  const m = Math.floor(s/60), sec = s%60;
+  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function phaseColor(c) {
+  if(c==='red') return 'col-red';
+  if(c==='blue') return 'col-blue';
+  if(c==='gold') return 'col-gold';
+  return 'col-neutral';
+}
+
+function buildRail() {
+  const rail = document.getElementById('phaseRail');
+  rail.innerHTML = '';
+  PHASES.forEach((p,i) => {
+    const chip = document.createElement('div');
+    chip.className = 'phase-chip' + (i===currentPhase?' active '+p.color:(i<currentPhase?' done':''));
+    chip.innerHTML = `<span class="chip-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="chip-label">${p.label}</span>
+      <span class="chip-dur">${fmt(p.duration)}</span>`;
+    chip.onclick = () => { if(!running){ goToPhase(i); } };
+    rail.appendChild(chip);
+  });
+}
+
+function getGroupStatus(key, phase) {
+  const p = PHASES[phase];
+  if(!p.groups.includes(key)) return 'Standing by';
+  const labels = {
+    0:  'Preparing arguments',
+    1:  key==='pro'    ? 'Presenting now'            : 'Listening',
+    2:  key==='anti'   ? 'Presenting now'            : 'Listening',
+    3:  'Preparing Q&A responses',
+    4:  key==='pro'    ? 'Asking questions now'      : 'Listening',
+    5:  key==='anti'   ? 'Asking questions now'      : 'Listening',
+    6:  key==='pro'    ? 'Answering questions'       : '—',
+    7:  key==='anti'   ? 'Answering questions'       : '—',
+    8:  key==='bureau' ? 'Asking questions now'      : 'Listening',
+    9:  key==='pro'    ? 'Responding to Bureaucracy' : '—',
+    10: key==='anti'   ? 'Responding to Bureaucracy' : '—',
+    11: key==='bureau' ? 'Delivering final decision' : 'Awaiting decision',
+  };
+  return labels[phase] || '—';
+}
+
+function renderStage() {
+  const stage = document.getElementById('stage');
+  if(currentPhase >= PHASES.length) {
+    stage.innerHTML = `<div class="completion">
+      <h2>Debate Complete</h2>
+      <p>All phases finished. Time for deliberation.</p>
+      <div style="margin-top:24px;">
+        <button class="btn btn-secondary" onclick="resetDebate()">Reset</button>
+      </div>
+    </div>`;
+    document.getElementById('liveLabel').textContent = '■ COMPLETE';
+    return;
+  }
+
+  const p = PHASES[currentPhase];
+  const col = phaseColor(p.color);
+  const pct = (timeLeft / p.duration * 100).toFixed(1);
+  const urgent = timeLeft <= 15;
+
+  stage.innerHTML = `
+    <div class="phase-headline ${col}">
+      <div class="phase-number">PHASE ${String(currentPhase+1).padStart(2,'0')} / ${PHASES.length}</div>
+      <h2>${p.label}</h2>
+      <div class="phase-desc">${p.desc}</div>
+    </div>
+
+    <div class="clock-wrap ${col}">
+      <div class="clock ${urgent?'urgent':''}" id="clock">${fmt(timeLeft)}</div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar" style="width:${pct}%"></div>
+      </div>
+    </div>
+
+    <div class="group-panels">
+      ${Object.entries(GROUPS).map(([key,g]) => {
+        const active = p.groups.includes(key);
+        const status = getGroupStatus(key, currentPhase);
+        return `<div class="group-card ${g.card} ${active?'active':''}">
+          <div class="card-tag">${g.tag}</div>
+          <div class="card-name">${g.name}</div>
+          <div class="card-status">${status}</div>
+        </div>`;
+      }).join('')}
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" onclick="prevPhase()" ${currentPhase===0?'disabled':''}>← Prev</button>
+      <button class="btn btn-primary" id="startBtn" onclick="toggleTimer()">${running?'⏸ Pause':'▶ Start'}</button>
+      <button class="btn btn-secondary" onclick="nextPhase()" ${currentPhase>=PHASES.length-1&&timeLeft<=0?'disabled':''}>Next →</button>
+    </div>
+  `;
+}
+
+function toggleTimer() {
+  if(running) {
+    clearInterval(interval);
+    running = false;
+    document.getElementById('liveLabel').textContent = '⏸ PAUSED';
+  } else {
+    running = true;
+    document.getElementById('liveLabel').textContent = '● LIVE';
+    interval = setInterval(tick, 1000);
+  }
+  renderStage();
+}
+
+function playSiren() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const totalDuration = 2.4;
+  [0, 1].forEach(i => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    const startFreq = i === 0 ? 440 : 520;
+    const endFreq   = i === 0 ? 880 : 1040;
+    const offset    = i * 0.05;
+    for(let w = 0; w < 3; w++) {
+      const t0 = ctx.currentTime + offset + w * 0.75;
+      const t1 = t0 + 0.35;
+      const t2 = t1 + 0.35;
+      osc.frequency.setValueAtTime(startFreq, t0);
+      osc.frequency.linearRampToValueAtTime(endFreq, t1);
+      osc.frequency.linearRampToValueAtTime(startFreq, t2);
+    }
+    gain.gain.setValueAtTime(0, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.18, ctx.currentTime + 0.05);
+    gain.gain.setValueAtTime(0.18, ctx.currentTime + totalDuration - 0.15);
+    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + totalDuration);
+    osc.type = 'sawtooth';
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + totalDuration);
+  });
+}
+
+function tick() {
+  timeLeft--;
+  if(timeLeft < 0) {
+    clearInterval(interval);
+    running = false;
+    playSiren();
+    // auto-advance
+    if(currentPhase < PHASES.length - 1) {
+      currentPhase++;
+      timeLeft = PHASES[currentPhase].duration;
+      buildRail();
+      renderStage();
+      // resume timer automatically
+      running = true;
+      interval = setInterval(tick, 1000);
+      document.getElementById('liveLabel').textContent = '● LIVE';
+    } else {
+      currentPhase = PHASES.length;
+      buildRail();
+      renderStage();
+    }
+    return;
+  }
+  // Fast update just clock and progress bar
+  const clockEl = document.getElementById('clock');
+  const bar = document.getElementById('progressBar');
+  if(clockEl) {
+    clockEl.textContent = fmt(timeLeft);
+    clockEl.className = 'clock ' + (timeLeft<=15?'urgent':'');
+  }
+  if(bar) {
+    bar.style.width = (timeLeft / PHASES[currentPhase].duration * 100).toFixed(1) + '%';
+  }
+}
+
+function nextPhase() {
+  clearInterval(interval);
+  running = false;
+  if(currentPhase < PHASES.length - 1) {
+    currentPhase++;
+    timeLeft = PHASES[currentPhase].duration;
+    buildRail();
+    renderStage();
+  }
+}
+
+function prevPhase() {
+  clearInterval(interval);
+  running = false;
+  if(currentPhase > 0) {
+    currentPhase--;
+    timeLeft = PHASES[currentPhase].duration;
+    buildRail();
+    renderStage();
+  }
+}
+
+function goToPhase(i) {
+  clearInterval(interval);
+  running = false;
+  currentPhase = i;
+  timeLeft = PHASES[i].duration;
+  buildRail();
+  renderStage();
+}
+
+function resetDebate() {
+  clearInterval(interval);
+  running = false;
+  currentPhase = 0;
+  timeLeft = PHASES[0].duration;
+  document.getElementById('liveLabel').textContent = '● STANDBY';
+  buildRail();
+  renderStage();
+}
+
+buildRail();
+renderStage();
+
+function startDebate() {
+  document.getElementById('briefing').style.display = 'none';
+}
+</script>
+</body>
+</html>
