@@ -3,7 +3,7 @@ title: "Nuclear Debate Timer"
 collection: teaching
 type: "Class activity"
 permalink: /teaching/debate-timer
-venue: "Your Course Name"
+venue: "Boston College, International Studies"
 date: 2026-03-11
 ---
 
