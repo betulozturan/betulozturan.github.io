@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Betul Ozturan"
 title_separator          : "-"
 name                     : &name "Betul Ozturan"
-description              : &description "personal description"
+description              : &description "PhD Candidate in Political Science at Boston College. Research focuses on rebel group alliances, post-conflict governance, and political violence."
 url                      : https://betulozturan.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
@@ -35,7 +35,7 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=9Qv8leMAAAAJ&hl=tr&authuser=2"
   impactstory      : # URL
-  orcid            : https://orcid.org/0000-0001-9510-1397"
+  orcid            : "https://orcid.org/0000-0001-9510-1397"
   semantic         : # URL
   pubmed           : # URL
   researchgate     : # URL
