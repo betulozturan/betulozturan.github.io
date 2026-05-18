@@ -2,6 +2,9 @@
 permalink: /
 title: "About Me"
 author_profile: true
+header:
+  overlay_image: image-alignment-1200x4002.jpg
+  overlay_filter: 0.35
 redirect_from: 
   - /about/
   - /about.html
@@ -52,4 +55,3 @@ If you're interested in my work, want to collaborate, or just want to chat about
 
 📫 [ozturan@bc.edu](mailto:ozturan@bc.edu)  
 📄 [View my CV](files/Betul_Ozturan.pdf)
-
