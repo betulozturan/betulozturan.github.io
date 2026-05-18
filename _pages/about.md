@@ -3,7 +3,7 @@ permalink: /
 title: "About Me"
 author_profile: true
 header:
-  overlay_image: image-alignment-1200x4002.jpg
+  overlay_image: header-photo.jpg
   overlay_filter: 0.35
 redirect_from: 
   - /about/
