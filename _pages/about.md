@@ -15,7 +15,7 @@ What is going on?
 ======
 My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was published in the **Terrorism & Political Violence** (2025).
 
-I have presented my research on rebel relations at **IC2S2 July 23, 2025 (virtual)**, **PolNet 2025 at Harvard**, **APSA 2025 (virtual)**, and **CRS 2025 (in Kent, UK)**, and will be presenting at **ISA 2025**. 
+I have presented my research projects on rebel relations in Syria and terrorism at **ISA 2026**, and will present at **Polmeth 2026 MSU**, **PolNet 2026 at Manchester**, and **APSA 2026**.
 
 I have completed **Network Analysis I** ,**Network Analysis II** and **Data visualization** courses at ICPSR with the support of EITM scholarship. 
 
@@ -36,7 +36,7 @@ Teaching
 
 Over the past four years, I’ve taught and assisted in a range of undergraduate courses, including:
 
-- *Introduction to International Relations* (2024, 2025)
+- *Introduction to International Relations* (2024, 2025, 2026)
 - *Global Governance* (2023)
 - *Internet and Politics* (2022)
 - *Introduction to Turkish Politics* (2017)
@@ -45,7 +45,7 @@ Over the past four years, I’ve taught and assisted in a range of undergraduate
 
 ## Other things I do
 
-In addition to my dissertation work, I’ve conducted field research in **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
+In addition to my dissertation work, I’ve conducted field research in **Turkey**, **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **APSA Centennial Reserach Grants**, **Institute for Humane Studies**, **Omar Aggad Fellowship of Boston College**, **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
 
 
 If you're interested in my work, want to collaborate, or just want to chat about rebel group strategies or visualizing conflict data —feel free to reach out!
