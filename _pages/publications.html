@@ -11,26 +11,54 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+<h2>Journal Articles</h2><hr />
 
+<p><strong>How Students and the Public Define Terrorism, and How Education Affects Those Definitions</strong></p>
+<p>Krause, P., Özturan, B., &amp; Young, L. (2025). <em>Terrorism and Political Violence</em>, 1–20. https://doi.org/10.1080/09546553.2025.2509130</p>
+
+<p><strong>From Conflict to Consensus: Power-Sharing and the Path to Democracy</strong></p>
+<p>Ozturan, B. (2025). <em>Clough Center Journal</em>, 3, 93–99.</p>
+<p>This paper explores how institutional power-sharing arrangements influence democratic development in post-conflict settings.</p>
+
+<p><strong>Review of Governing After War: Rebel Victories and Post-War Statebuilding</strong></p>
+<p>Ozturan, B. (Forthcoming). <em>Civil Wars</em>. https://doi.org/10.1080/13698249.2026.2718634</p>
+
+<h2>Conference Papers</h2><hr />
+
+<p><strong>Mapping Political Violence in Turkey: When Terrorism and Civil War Converge</strong></p>
+<p>Ozturan, B. (2024). <em>APSA Preprints</em>. https://doi.org/10.33774/apsa-2024-wg865</p>
+<p>This paper investigates the convergence between terrorism and civil war in Turkey using merged event datasets and spatial-temporal analysis.</p>
+
+<h2>Working Papers</h2><hr />
+
+<p><strong>Why Do Rebel Groups Ally and Fight? A Network Model of Wartime Cooperation and Conflict</strong></p>
+<p>Ozturan, B. (working paper)</p>
+<p>This article develops a relational theory of wartime cooperation and conflict and tests it on the Syrian civil war, reconstructing the inter-rebel network as a two-layer object, one layer for cooperation and one for conflict, from georeferenced event data on 77 armed groups active between 2011 and 2024. Building on accounts centered on identity, power, and territory, the theory derives four hypotheses, including a "frenemy" hypothesis that treats the coincidence of cooperation and conflict on the same dyad as a third, analytically distinct relational type rather than a residual overlap between the other two. Five complementary network models, cross-sectional and temporal exponential random graph models, a multilayer ERGM, a four-category multinomial logit, and an additive and multiplicative effects model, are estimated jointly, with agreement across their non-overlapping assumptions serving as the inferential warrant. Geographic proximity is the strongest and most consistent predictor of whether any tie exists; power operates as a node-level activity effect, with the most resourced groups forming disproportionately many ties of every kind; and ideology suppresses conflict without driving alliance, an effect concentrated early in the war. The frenemy pattern, rather than reflecting a distinct dyadic tendency, proves to be a by-product of activity concentrated on a small number of powerful hubs.</p>
+<p>Full paper available on request — reach out at ozturan@bc.edu.</p>
+
+<p><strong>Over Proofed: Military Purges, Command Structure, and Foreign Military Intervention in Authoritarian Regimes</strong></p>
+<p>Ozturan, B. (Under Review at Armed Forces and Society)</p>
+<p>Why do some authoritarian leaders who have systematically weakened their own militaries through purges still deploy those militaries abroad? This article argues that the relationship between coup-proofing and foreign military intervention is nonlinear, but in a form that prior theory has not specified: purging military officers increases the probability of foreign intervention up to a moderate threshold, then decreases it. Using the Military Purges in Dictatorships (MPD) dataset (Sudduth, 2021) with the International Military Intervention (IMI) dataset (Pickering &amp; Kisangani, 2009; Pearson &amp; Baumann, 1993) across 114 autocracies from 1965 to 2005, we show that officer purges predicts combat interventions abroad in a curvilinear pattern. Crucially, this effect is driven almost entirely by purges of middle-rank officers not top commanders or junior soldiers. Purging 2-3 generals or colonels in a rolling three-year window is associated with a peak probability of foreign combat deployment; purging more than that predicts declining engagement.</p>
+
+<p><strong>The Problem of Peace: Network Dynamics of Rebel Groups and Governance Institutions.</strong></p>
+<p>Ozturan, B.</p>
+
+<p><strong>To Which Victor Go the Spoils? Predicting "The Day After" Regime Change.</strong></p>
+<p>Krause, P., &amp; Ozturan, B.</p>
+
+<p><strong>Peace Processes and Terrorist Tactics: Negotiation Timing, Battle Deaths, and Terrorism Onset</strong></p>
+<p>Ozturan, B.</p>
+
+<p><strong>From News to Networks: An LLM-Based Pipeline for Extracting Rebel Alliance Structure, Identity, and Power.</strong></p>
+<p>Ozturan, B. (Supported by APSA Centennial Center Research Grant.)</p>
+
+<p><strong>Schools of Authority: Rebel-Run Education Systems in Civil Wars.</strong></p>
+<p>Ozturan, B., &amp; Corradi, E.</p>
+
+<p><strong>Rebel Group Constellations: A Methodological Approach to the Study of Rebel Alliances.</strong></p>
+<p>Ozturan, B., &amp; Schwab, R.</p>
+
+<p><strong>Fostering Constructive Conversations: AI-Mediated Dialogue for Intergroup Understanding.</strong></p>
+<p>Krause, P., Young, L., Ozturan, B., &amp; Zheng, H.</p>
 
 
