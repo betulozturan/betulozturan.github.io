@@ -16,6 +16,8 @@ My dissertation project investigates **rebel group alliances** and their long-te
 
 What is going on? 
 ======
+I am on the job market for 2026-2027 year.
+
 My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was published in the **Terrorism & Political Violence** (2025), and my book review in **Civil Wars** is forthcoming in 2026.
 
 I have presented my research projects on rebel relations in Syria and terrorism at **ISA 2026**, and I presented at **Polmeth 2026 MSU** (July) and **PolNet 2026 at Manchester** (August); I will present at **APSA 2026** (September).
