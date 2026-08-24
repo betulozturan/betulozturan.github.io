@@ -44,12 +44,6 @@ Talks
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
 
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
 Skills
 ======
 * **Methods**: Text analysis, social network analysis, event data modeling, machine learning, spatial visualization, regression analysis
