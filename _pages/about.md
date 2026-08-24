@@ -52,7 +52,7 @@ Over the past four years, I’ve taught and assisted in a range of undergraduate
 
 ## Other things I do
 
-In addition to my dissertation work, I’ve conducted field research in **Turkey**, **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **APSA Centennial Reserach Grants**, **Institute for Humane Studies**, **Omar Aggad Fellowship of Boston College**, **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
+In addition to my dissertation work, I’ve conducted field research in **Turkey**, **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **APSA Centennial Research Grants**, **Institute for Humane Studies**, **Omar Aggad Fellowship of Boston College**, **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
 
 
 If you're interested in my work, want to collaborate, or just want to chat about rebel group strategies or visualizing conflict data —feel free to reach out!
