@@ -203,3 +203,86 @@
     fill: var(--global-bg-color);
   }
 }
+
+/*
+   Publications & talks listings
+   ========================================================================== */
+
+h2.pub-section-title {
+  margin-top: 1.5em;
+  padding-bottom: 0.4em;
+  border-bottom: 3px solid #8a6a45;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.pub-list {
+  margin-bottom: 1em;
+}
+
+.pub-entry {
+  padding: 1em 0 1em 1em;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid var(--global-border-color);
+  transition: border-left-color 0.15s ease-in-out;
+
+  &:hover {
+    border-left-color: #8a6a45;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.pub-entry__title {
+  font-weight: bold;
+  font-size: $type-size-5;
+  margin: 0 0 0.35em;
+}
+
+.pub-entry__meta {
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+  margin: 0 0 0.5em;
+}
+
+.pub-entry__abstract {
+  font-size: $type-size-6;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.talks-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 0.85em 0 0.85em 1em;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--global-border-color);
+    transition: border-left-color 0.15s ease-in-out;
+
+    &:hover {
+      border-left-color: #8a6a45;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.talk-title {
+  font-weight: bold;
+  margin: 0 0 0.25em;
+}
+
+.talk-venue {
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+  margin: 0;
+}
