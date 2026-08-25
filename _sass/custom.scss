@@ -124,6 +124,12 @@ $hero-ink: #2b2015;
   }
 }
 
+.hero-profile__email {
+  color: rgba($hero-ink, 0.85);
+  font-size: $type-size-6;
+  margin: 0 0 0.75em;
+}
+
 .hero-profile__cv-btn {
   border-color: $hero-ink !important;
   color: $hero-ink !important;
