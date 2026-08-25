@@ -36,9 +36,9 @@ I am on the job market for 2026-2027 academic year.
 
 I was awarded **APSA Centennial Center Research Grant** for *“From News to Networks“* project. 
 
-My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was published in the **Terrorism & Political Violence** (2025), and my book review in **Civil Wars** is forthcoming in 2026.
+My most recent publication, *“How Students and the Public Define Terrorism, and How Education Affects Those Definitions”*, was published in the **Terrorism & Political Violence** (2025), and my book review in **Civil Wars** is forthcoming in 2026. [More publications →](/publications/)
 
-I have presented my research projects on rebel relations in Syria and terrorism at **ISA 2026**, and I presented at **Polmeth 2026 MSU** (July) and **PolNet 2026 at Manchester** (August); I will present at **APSA 2026** (September).
+I have presented my research projects on rebel relations in Syria and terrorism at **ISA 2026**, and I presented at **Polmeth 2026 MSU** (July) and **PolNet 2026 at Manchester** (August); I will present at **APSA 2026** (September). [More presentations →](/talks/)
 
 I have completed **Network Analysis I**, **Network Analysis II**, **Machine Learning (2022)**, and **Data Visualization (2025)** courses at ICPSR with the support of EITM scholarship. 
 
@@ -68,6 +68,3 @@ In addition to my dissertation work, I’ve conducted field research in **Turkey
 
 
 If you're interested in my work, want to collaborate, or just want to chat about rebel group strategies or visualizing conflict data —feel free to reach out!
-
-📫 [ozturan@bc.edu](mailto:ozturan@bc.edu)  
-📄 [View my CV](files/Betul_Ozturan.pdf)

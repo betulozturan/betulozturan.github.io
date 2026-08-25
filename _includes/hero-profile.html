@@ -57,9 +57,7 @@
 
         {% if page.interests %}
           <p class="hero-profile__section-title hero-profile__section-title--sub">Interests</p>
-          <ul class="hero-profile__tags">
-            {% for interest in page.interests %}<li>{{ interest }}</li>{% endfor %}
-          </ul>
+          <p class="hero-profile__interests-text">{{ page.interests | join: " · " }}</p>
         {% endif %}
 
         {% if page.education %}

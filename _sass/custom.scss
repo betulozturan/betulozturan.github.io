@@ -34,18 +34,18 @@
 .hero-profile__photo {
   display: block;
   width: 100%;
-  height: 220px;
+  height: 150px;
   object-fit: cover;
 
   @include breakpoint($medium) {
-    height: 340px;
+    height: 220px;
   }
 }
 
 .hero-profile__band {
   position: relative;
-  background-color: #123b38;
-  padding: 3em 1em 5em;
+  background-color: #2b261e;
+  padding: 2em 1em 3em;
   overflow: hidden;
 }
 
@@ -147,21 +147,10 @@
   }
 }
 
-.hero-profile__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
+.hero-profile__interests-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: $type-size-6;
   margin: 0;
-  padding: 0;
-  list-style: none;
-
-  li {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: $type-size-6;
-    padding: 0.35em 0.9em;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-  }
 }
 
 .hero-profile__education {
@@ -207,21 +196,5 @@
 
   path {
     fill: var(--global-bg-color);
-  }
-}
-
-.cv-embed {
-  margin: 1.5em 0;
-  border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
-  overflow: hidden;
-
-  object {
-    display: block;
-    width: 100%;
-    /* US Letter page ratio (612 x 792pt), so the box hugs the page
-       instead of leaving empty space below/above it */
-    aspect-ratio: 612 / 792;
-    height: auto;
   }
 }
