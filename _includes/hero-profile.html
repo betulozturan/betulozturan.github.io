@@ -1,6 +1,6 @@
 {% include base_path %}
 
-<div class="hero-profile">
+<div class="hero-profile" style="background-image: linear-gradient(rgba(15, 41, 38, 0.72), rgba(15, 41, 38, 0.72)), url('{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}');">
   <div class="wrapper hero-profile__inner">
     <div class="hero-profile__identity">
       {% if site.author.avatar %}

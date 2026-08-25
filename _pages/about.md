@@ -3,6 +3,8 @@ permalink: /
 title: "About Me"
 author_profile: false
 hero_profile: true
+header:
+  overlay_image: IMG_0022.jpg
 interests:
   - Rebel Governance
   - Civil War Alliances
