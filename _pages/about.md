@@ -5,14 +5,6 @@ author_profile: false
 hero_profile: true
 header:
   overlay_image: IMG_0022.jpg
-interests:
-  - Rebel Governance
-  - Civil War Alliances
-  - Power-Sharing
-  - Political Violence
-  - Social Network Analysis
-  - Text Analysis
-about_bio:
   - "Hi! I’m **Betul Ozturan**, a Ph.D. candidate in Political Science at **Boston College**, where I study how rebel groups evolve into political actors, and how power-sharing institutions emerge in post-conflict societies. My work sits at the intersection of international relations, comparative politics, and political violence—asking questions like: When does armed conflict give way to democracy? Why do some rebel groups gain legitimacy while others don’t? How do alliances during war shape the political institutions that follow?"
   - "My dissertation project investigates **rebel group alliances** and their long-term influence on postwar governance. To do this, I combine computational methods—like **text analysis**, **social network analysis**, and **event data modeling**. I also work with large datasets on political violence, often building tools that help researchers and the public better understand conflict dynamics."
 education:
