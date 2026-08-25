@@ -2,7 +2,7 @@
    CUSTOM OVERRIDES
    ========================================================================== */
 
-$accent-mustard: #c99a2e;
+$accent-color: #e2a76f; // Brown Sugar
 $hero-ink: #2b2015;
 
 /*
@@ -52,7 +52,7 @@ $hero-ink: #2b2015;
 
 .hero-profile__band {
   position: relative;
-  background-color: $accent-mustard;
+  background-color: $accent-color;
   padding: 2em 1em 3em;
   overflow: hidden;
 }
@@ -224,7 +224,7 @@ $hero-ink: #2b2015;
 h2.pub-section-title {
   margin-top: 1.5em;
   padding-bottom: 0.4em;
-  border-bottom: 3px solid $accent-mustard;
+  border-bottom: 3px solid $accent-color;
 
   &:first-child {
     margin-top: 0;
@@ -242,7 +242,7 @@ h2.pub-section-title {
   transition: border-left-color 0.15s ease-in-out;
 
   &:hover {
-    border-left-color: $accent-mustard;
+    border-left-color: $accent-color;
   }
 
   &:last-child {
@@ -284,7 +284,7 @@ html[data-theme="dark"] .pub-entry__meta {
     transition: border-left-color 0.15s ease-in-out;
 
     &:hover {
-      border-left-color: $accent-mustard;
+      border-left-color: $accent-color;
     }
 
     &:last-child {
