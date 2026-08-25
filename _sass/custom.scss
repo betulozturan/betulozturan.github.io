@@ -3,6 +3,18 @@
    ========================================================================== */
 
 /*
+   Masthead nav: let the nav fill the header so links stay visible
+   instead of collapsing into the hamburger menu (the stock template's
+   .masthead__menu never grows to fill its flex parent, so #site-nav
+   is stuck at its own min-width and greedy-nav treats everything past
+   the site title as overflow).
+   ========================================================================== */
+
+.masthead__menu {
+  flex: 1;
+}
+
+/*
    Hero profile band (About page)
    ========================================================================== */
 
