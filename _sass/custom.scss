@@ -10,11 +10,10 @@
 
   object {
     display: block;
-  }
-
-  @include breakpoint(max-width $medium) {
-    object {
-      height: 600px;
-    }
+    width: 100%;
+    /* US Letter page ratio (612 x 792pt), so the box hugs the page
+       instead of leaving empty space below/above it */
+    aspect-ratio: 612 / 792;
+    height: auto;
   }
 }
