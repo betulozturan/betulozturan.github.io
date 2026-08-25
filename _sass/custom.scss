@@ -2,6 +2,8 @@
    CUSTOM OVERRIDES
    ========================================================================== */
 
+$accent-mustard: #c99a2e;
+
 /*
    Masthead nav: let the nav fill the header so links stay visible
    instead of collapsing into the hamburger menu (the stock template's
@@ -211,7 +213,7 @@
 h2.pub-section-title {
   margin-top: 1.5em;
   padding-bottom: 0.4em;
-  border-bottom: 3px solid #8a6a45;
+  border-bottom: 3px solid $accent-mustard;
 
   &:first-child {
     margin-top: 0;
@@ -229,7 +231,7 @@ h2.pub-section-title {
   transition: border-left-color 0.15s ease-in-out;
 
   &:hover {
-    border-left-color: #8a6a45;
+    border-left-color: $accent-mustard;
   }
 
   &:last-child {
@@ -244,9 +246,13 @@ h2.pub-section-title {
 }
 
 .pub-entry__meta {
-  color: var(--global-text-color-light);
+  color: #595d61;
   font-size: $type-size-6;
   margin: 0 0 0.5em;
+}
+
+html[data-theme="dark"] .pub-entry__meta {
+  color: var(--global-text-color-light);
 }
 
 .pub-entry__abstract {
@@ -267,7 +273,7 @@ h2.pub-section-title {
     transition: border-left-color 0.15s ease-in-out;
 
     &:hover {
-      border-left-color: #8a6a45;
+      border-left-color: $accent-mustard;
     }
 
     &:last-child {
@@ -282,7 +288,11 @@ h2.pub-section-title {
 }
 
 .talk-venue {
-  color: var(--global-text-color-light);
+  color: #595d61;
   font-size: $type-size-6;
   margin: 0;
+}
+
+html[data-theme="dark"] .talk-venue {
+  color: var(--global-text-color-light);
 }
