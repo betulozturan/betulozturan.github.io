@@ -175,11 +175,13 @@ h1, h2, h3, h4, h5, h6,
 
 .hero-profile__section-title {
   color: $hero-ink;
-  font-size: $type-size-4;
+  font-size: $type-size-3;
+  font-weight: bold;
   margin: 0 0 0.75em;
 
   &--sub {
     font-size: $type-size-6;
+    font-weight: normal;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: rgba($hero-ink, 0.65);
