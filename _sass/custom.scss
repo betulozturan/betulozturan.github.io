@@ -223,6 +223,19 @@ $hero-ink: #2b2015;
   }
 }
 
+.hero-profile__wave--top {
+  position: relative;
+  bottom: auto;
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-top: -60px;
+
+  path {
+    fill: $accent-color;
+  }
+}
+
 /*
    Publications & talks listings
    ========================================================================== */
