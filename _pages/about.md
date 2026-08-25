@@ -2,9 +2,6 @@
 permalink: /
 title: "About Me"
 author_profile: true
-header:
-  overlay_image: IMG_0022.jpg
-  overlay_filter: 0.1
 redirect_from: 
   - /about/
   - /about.html

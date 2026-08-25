@@ -1,0 +1,20 @@
+/* ==========================================================================
+   CUSTOM OVERRIDES
+   ========================================================================== */
+
+.cv-embed {
+  margin: 1.5em 0;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  object {
+    display: block;
+  }
+
+  @include breakpoint(max-width $medium) {
+    object {
+      height: 600px;
+    }
+  }
+}
