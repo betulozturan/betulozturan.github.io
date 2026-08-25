@@ -177,11 +177,13 @@ h1, h2, h3, h4, h5, h6,
   color: $hero-ink;
   font-size: $type-size-3;
   font-weight: bold;
+  -webkit-text-stroke: 0.6px $hero-ink;
   margin: 0 0 0.75em;
 
   &--sub {
     font-size: $type-size-6;
     font-weight: normal;
+    -webkit-text-stroke: none;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: rgba($hero-ink, 0.65);
