@@ -1,7 +1,15 @@
 ---
 permalink: /
 title: "About Me"
-author_profile: true
+author_profile: false
+hero_profile: true
+interests:
+  - Rebel Governance
+  - Civil War Alliances
+  - Power-Sharing
+  - Political Violence
+  - Social Network Analysis
+  - Text Analysis
 redirect_from: 
   - /about/
   - /about.html

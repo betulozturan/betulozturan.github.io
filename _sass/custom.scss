@@ -2,6 +2,143 @@
    CUSTOM OVERRIDES
    ========================================================================== */
 
+/*
+   Hero profile band (About page)
+   ========================================================================== */
+
+.page--full {
+  @include breakpoint($large) {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.hero-profile {
+  position: relative;
+  background-color: #123b38;
+  padding: 3em 1em 5em;
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+
+.hero-profile__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5em;
+  align-items: center;
+}
+
+.hero-profile__identity {
+  flex: 1 1 260px;
+  text-align: center;
+
+  @include breakpoint($medium) {
+    text-align: left;
+  }
+}
+
+.hero-profile__avatar {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  margin-bottom: 1em;
+}
+
+.hero-profile__name {
+  color: #fff;
+  font-family: $sans-serif-narrow;
+  font-size: $type-size-2;
+  margin: 0 0 0.2em;
+}
+
+.hero-profile__title {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: $type-size-5;
+  margin: 0 0 1em;
+}
+
+.hero-profile__socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0 0 1.5em;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoint($medium) {
+    justify-content: flex-start;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+  }
+}
+
+.hero-profile__about {
+  flex: 1 1 320px;
+}
+
+.hero-profile__eyebrow {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: $sans-serif-narrow;
+  font-size: $type-size-6;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 0.5em;
+}
+
+.hero-profile__tagline {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: $type-size-4;
+  line-height: 1.5;
+  margin: 0 0 1.25em;
+}
+
+.hero-profile__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: $type-size-6;
+    padding: 0.35em 0.9em;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.hero-profile__wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  path {
+    fill: var(--global-bg-color);
+  }
+}
+
 .cv-embed {
   margin: 1.5em 0;
   border: 1px solid var(--global-border-color);
