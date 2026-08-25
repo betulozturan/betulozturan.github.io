@@ -1,60 +1,83 @@
 {% include base_path %}
 
-<div class="hero-profile" style="background-image: linear-gradient(rgba(15, 41, 38, 0.72), rgba(15, 41, 38, 0.72)), url('{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}');">
-  <div class="wrapper hero-profile__inner">
-    <div class="hero-profile__identity">
-      {% if site.author.avatar %}
-        <img
-          src="{% if site.author.avatar contains '://' %}{{ site.author.avatar }}{% else %}{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}{% endif %}"
-          alt="{{ site.author.name }}"
-          class="hero-profile__avatar">
-      {% endif %}
+<div class="hero-profile">
+  {% if page.header.overlay_image %}
+    <img
+      src="{{ page.header.overlay_image | prepend: '/images/' | prepend: base_path }}"
+      alt=""
+      class="hero-profile__photo">
+  {% endif %}
 
-      <h1 class="hero-profile__name">{{ site.author.name }}</h1>
-      {% if site.author.bio %}<p class="hero-profile__title">{{ site.author.bio }}</p>{% endif %}
+  <div class="hero-profile__band">
+    <div class="wrapper hero-profile__inner">
+      <div class="hero-profile__identity">
+        {% if site.author.avatar %}
+          <img
+            src="{% if site.author.avatar contains '://' %}{{ site.author.avatar }}{% else %}{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}{% endif %}"
+            alt="{{ site.author.name }}"
+            class="hero-profile__avatar">
+        {% endif %}
 
-      <ul class="hero-profile__socials">
-        {% if site.author.email %}
-          <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.googlescholar %}
-          <li><a href="{{ site.author.googlescholar }}" aria-label="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.orcid %}
-          <li><a href="{{ site.author.orcid }}" aria-label="ORCID"><i class="ai ai-orcid" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.github %}
-          <li><a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.bluesky %}
-          <li><a href="https://bsky.app/profile/{{ site.author.bluesky }}" aria-label="Bluesky"><i class="fab fa-fw fa-bluesky" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.linkedin %}
-          <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.author.twitter %}
-          <li><a href="https://twitter.com/{{ site.author.twitter }}" aria-label="X (formerly Twitter)"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i></a></li>
-        {% endif %}
-      </ul>
+        <h1 class="hero-profile__name">{{ site.author.name }}</h1>
+        {% if site.author.bio %}<p class="hero-profile__title">{{ site.author.bio }}</p>{% endif %}
 
-      <a href="{{ base_path }}/files/Betul_Ozturan.pdf" class="btn btn--light-outline hero-profile__cv-btn" target="_blank" rel="noopener">Download CV</a>
-    </div>
-
-    <div class="hero-profile__about">
-      {% if site.description %}
-        <p class="hero-profile__eyebrow">Research focus</p>
-        <p class="hero-profile__tagline">{{ site.description }}</p>
-      {% endif %}
-
-      {% if page.interests %}
-        <ul class="hero-profile__tags">
-          {% for interest in page.interests %}<li>{{ interest }}</li>{% endfor %}
+        <ul class="hero-profile__socials">
+          {% if site.author.email %}
+            <li><a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.googlescholar %}
+            <li><a href="{{ site.author.googlescholar }}" aria-label="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.orcid %}
+            <li><a href="{{ site.author.orcid }}" aria-label="ORCID"><i class="ai ai-orcid" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.github %}
+            <li><a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.bluesky %}
+            <li><a href="https://bsky.app/profile/{{ site.author.bluesky }}" aria-label="Bluesky"><i class="fab fa-fw fa-bluesky" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.linkedin %}
+            <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a></li>
+          {% endif %}
+          {% if site.author.twitter %}
+            <li><a href="https://twitter.com/{{ site.author.twitter }}" aria-label="X (formerly Twitter)"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i></a></li>
+          {% endif %}
         </ul>
-      {% endif %}
-    </div>
-  </div>
 
-  <svg class="hero-profile__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"></path>
-  </svg>
+        <a href="{{ base_path }}/files/Betul_Ozturan.pdf" class="btn btn--light-outline hero-profile__cv-btn" target="_blank" rel="noopener">Download CV</a>
+      </div>
+
+      <div class="hero-profile__about">
+        <p class="hero-profile__section-title">About me</p>
+
+        {% for paragraph in page.about_bio %}
+          <p class="hero-profile__bio-text">{{ paragraph | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% endfor %}
+
+        {% if page.interests %}
+          <p class="hero-profile__section-title hero-profile__section-title--sub">Interests</p>
+          <ul class="hero-profile__tags">
+            {% for interest in page.interests %}<li>{{ interest }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if page.education %}
+          <p class="hero-profile__section-title hero-profile__section-title--sub">Education</p>
+          <ul class="hero-profile__education">
+            {% for entry in page.education %}
+              <li>
+                <span class="hero-profile__education-degree">{{ entry.degree }}{% if entry.note %} <em>({{ entry.note }})</em>{% endif %}</span>
+                <span class="hero-profile__education-school">{{ entry.school }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+
+    <svg class="hero-profile__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"></path>
+    </svg>
+  </div>
 </div>

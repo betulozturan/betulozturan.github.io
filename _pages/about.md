@@ -12,14 +12,23 @@ interests:
   - Political Violence
   - Social Network Analysis
   - Text Analysis
+about_bio:
+  - "Hi! I’m **Betul Ozturan**, a Ph.D. candidate in Political Science at **Boston College**, where I study how rebel groups evolve into political actors, and how power-sharing institutions emerge in post-conflict societies. My work sits at the intersection of international relations, comparative politics, and political violence—asking questions like: When does armed conflict give way to democracy? Why do some rebel groups gain legitimacy while others don’t? How do alliances during war shape the political institutions that follow?"
+  - "My dissertation project investigates **rebel group alliances** and their long-term influence on postwar governance. To do this, I combine computational methods—like **text analysis**, **social network analysis**, and **event data modeling**. I also work with large datasets on political violence, often building tools that help researchers and the public better understand conflict dynamics."
+education:
+  - degree: "Ph.D. in Political Science"
+    school: "Boston College"
+    note: "in progress"
+  - degree: "M.A. in International Security Studies"
+    school: "Charles University, Prague"
+  - degree: "M.A. in Political Science and Public Administration"
+    school: "University of Konstanz"
+  - degree: "B.A. in Political Science and International Relations"
+    school: "Boğaziçi University, Istanbul"
 redirect_from: 
   - /about/
   - /about.html
 ---
-
-Hi! I’m **Betul Ozturan**, a Ph.D. candidate in Political Science at **Boston College**, where I study how rebel groups evolve into political actors, and how power-sharing institutions emerge in post-conflict societies. My work sits at the intersection of international relations, comparative politics, and political violence—asking questions like: When does armed conflict give way to democracy? Why do some rebel groups gain legitimacy while others don’t? How do alliances during war shape the political institutions that follow?
-
-My dissertation project investigates **rebel group alliances** and their long-term influence on postwar governance. To do this, I combine computational methods—like **text analysis**, **social network analysis**, and **event data modeling**. I also work with large datasets on political violence, often building tools that help researchers and the public better understand conflict dynamics.
 
 What is going on? 
 ======
@@ -37,14 +46,6 @@ I have published a research essay ”**From conflict to consensus: Power-sharing
 democracy**” on Clough Center Journal 2025. 
 
 
-Education
-======
-
-Before starting my Ph.D. in the U.S., I completed a **double M.A.** in *International Security Studies* from **Charles University** in Prague, and another in *Political Science and Public Administration* from the **University of Konstanz** in Germany. My master’s thesis introduced the **POLVITED dataset**—a merged conflict event database for Türkiye—where I applied **machine learning** and **spatial visualization** to track patterns in political violence. I also participated in the **ICPSR Summer Program** at the University of Michigan and the **Summer Institute in Computational Social Science (SICSS)**.
-
-I hold a B.A. in **Political Science and International Relations** from **Boğaziçi University** in Istanbul, where I also minored in Economics and spent a semester at **The American University in Cairo** as an exchange student.
-
-
 Teaching
 ======
 
@@ -58,6 +59,10 @@ Over the past four years, I’ve taught and assisted in a range of undergraduate
 
 
 ## Other things I do
+
+Before starting my Ph.D. in the U.S., I completed a **double M.A.** in *International Security Studies* from **Charles University** in Prague, and another in *Political Science and Public Administration* from the **University of Konstanz** in Germany. My master’s thesis introduced the **POLVITED dataset**—a merged conflict event database for Türkiye—where I applied **machine learning** and **spatial visualization** to track patterns in political violence. I also participated in the **ICPSR Summer Program** at the University of Michigan and the **Summer Institute in Computational Social Science (SICSS)**.
+
+I hold a B.A. in **Political Science and International Relations** from **Boğaziçi University** in Istanbul, where I also minored in Economics and spent a semester at **The American University in Cairo** as an exchange student.
 
 In addition to my dissertation work, I’ve conducted field research in **Turkey**, **Ukraine**, worked on projects like the **Political Violence Lab** and **Western Jihadism Project**, and presented at major conferences including **APSA**, **ISA**, and **MPSA**. I’ve also been fortunate to receive fellowships and support from the **APSA Centennial Research Grants**, **Institute for Humane Studies**, **Omar Aggad Fellowship of Boston College**, **Clough Center for the Study of Constitutional Democracy**, and the **German Academic Exchange Service (DAAD)**.
 

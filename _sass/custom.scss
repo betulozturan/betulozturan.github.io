@@ -16,10 +16,24 @@
 }
 
 .hero-profile {
+  margin-bottom: 1em;
+}
+
+.hero-profile__photo {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+  @include breakpoint($medium) {
+    height: 340px;
+  }
+}
+
+.hero-profile__band {
   position: relative;
   background-color: #123b38;
   padding: 3em 1em 5em;
-  margin-bottom: 1em;
   overflow: hidden;
 }
 
@@ -94,20 +108,31 @@
   flex: 1 1 320px;
 }
 
-.hero-profile__eyebrow {
-  color: rgba(255, 255, 255, 0.6);
+.hero-profile__section-title {
+  color: #fff;
   font-family: $sans-serif-narrow;
-  font-size: $type-size-6;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0 0 0.5em;
+  font-size: $type-size-4;
+  font-weight: bold;
+  margin: 0 0 0.75em;
+
+  &--sub {
+    font-size: $type-size-6;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 1.75em 0 0.75em;
+  }
 }
 
-.hero-profile__tagline {
+.hero-profile__bio-text {
   color: rgba(255, 255, 255, 0.92);
-  font-size: $type-size-4;
-  line-height: 1.5;
-  margin: 0 0 1.25em;
+  font-size: $type-size-5;
+  line-height: 1.6;
+  margin: 0 0 1em;
+
+  strong {
+    color: #fff;
+  }
 }
 
 .hero-profile__tags {
@@ -125,6 +150,40 @@
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.12);
   }
+}
+
+.hero-profile__education {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0.6em 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.hero-profile__education-degree {
+  color: #fff;
+  font-size: $type-size-6;
+
+  em {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: normal;
+  }
+}
+
+.hero-profile__education-school {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: $type-size-6;
 }
 
 .hero-profile__wave {
