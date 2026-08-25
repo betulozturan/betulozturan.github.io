@@ -5,33 +5,6 @@
 $accent-color: #d3b28e;
 $hero-ink: #2b2015;
 
-$font-heading: "Fraunces", Georgia, "Times New Roman", serif;
-$font-body: "Source Sans 3", -apple-system, "San Francisco", "Roboto", "Segoe UI", Arial, sans-serif;
-
-/*
-   Fonts: Fraunces for headings, Source Sans 3 for body, replacing the
-   stock system-font stack. Overriding directly here (rather than the
-   $global-font-family / $header-font-family variables) since those
-   are already baked into earlier-imported partials by the time this
-   file compiles.
-   ========================================================================== */
-
-body {
-  font-family: $font-body;
-}
-
-h1, h2, h3, h4, h5, h6,
-.hero-profile__name,
-.hero-profile__section-title {
-  font-family: $font-heading;
-}
-
-.masthead__inner-wrap,
-.sidebar .author__name,
-.btn {
-  font-family: $font-body;
-}
-
 /*
    Masthead nav: let the nav fill the header so links stay visible
    instead of collapsing into the hamburger menu (the stock template's
@@ -111,6 +84,7 @@ h1, h2, h3, h4, h5, h6,
 
 .hero-profile__name {
   color: $hero-ink;
+  font-family: $sans-serif-narrow;
   font-size: $type-size-2;
   margin: 0 0 0.2em;
 }
@@ -172,6 +146,7 @@ h1, h2, h3, h4, h5, h6,
 
 .hero-profile__section-title {
   color: $hero-ink;
+  font-family: $sans-serif-narrow;
   font-size: $type-size-4;
   font-weight: bold;
   margin: 0 0 0.75em;
