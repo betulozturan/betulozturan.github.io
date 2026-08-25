@@ -3,6 +3,7 @@
    ========================================================================== */
 
 $accent-mustard: #c99a2e;
+$hero-ink: #2b2015;
 
 /*
    Masthead nav: let the nav fill the header so links stay visible
@@ -51,7 +52,7 @@ $accent-mustard: #c99a2e;
 
 .hero-profile__band {
   position: relative;
-  background-color: #2b261e;
+  background-color: $accent-mustard;
   padding: 2em 1em 3em;
   overflow: hidden;
 }
@@ -77,19 +78,19 @@ $accent-mustard: #c99a2e;
   height: 130px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.85);
+  border: 3px solid rgba(255, 255, 255, 0.9);
   margin-bottom: 1em;
 }
 
 .hero-profile__name {
-  color: #fff;
+  color: $hero-ink;
   font-family: $sans-serif-narrow;
   font-size: $type-size-2;
   margin: 0 0 0.2em;
 }
 
 .hero-profile__title {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba($hero-ink, 0.75);
   font-size: $type-size-5;
   margin: 0 0 1em;
 }
@@ -114,12 +115,22 @@ $accent-mustard: #c99a2e;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
+    background: rgba($hero-ink, 0.12);
+    color: $hero-ink;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.24);
+      background: rgba($hero-ink, 0.22);
     }
+  }
+}
+
+.hero-profile__cv-btn {
+  border-color: $hero-ink !important;
+  color: $hero-ink !important;
+
+  &:hover {
+    background: $hero-ink !important;
+    color: #fff !important;
   }
 }
 
@@ -128,7 +139,7 @@ $accent-mustard: #c99a2e;
 }
 
 .hero-profile__section-title {
-  color: #fff;
+  color: $hero-ink;
   font-family: $sans-serif-narrow;
   font-size: $type-size-4;
   font-weight: bold;
@@ -138,24 +149,24 @@ $accent-mustard: #c99a2e;
     font-size: $type-size-6;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($hero-ink, 0.65);
     margin: 1.75em 0 0.75em;
   }
 }
 
 .hero-profile__bio-text {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba($hero-ink, 0.9);
   font-size: $type-size-5;
   line-height: 1.6;
   margin: 0 0 1em;
 
   strong {
-    color: #fff;
+    color: $hero-ink;
   }
 }
 
 .hero-profile__interests-text {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba($hero-ink, 0.85);
   font-size: $type-size-6;
   margin: 0;
 }
@@ -171,7 +182,7 @@ $accent-mustard: #c99a2e;
     justify-content: space-between;
     gap: 0.5em;
     padding: 0.6em 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba($hero-ink, 0.2);
 
     &:last-child {
       padding-bottom: 0;
@@ -180,17 +191,17 @@ $accent-mustard: #c99a2e;
 }
 
 .hero-profile__education-degree {
-  color: #fff;
+  color: $hero-ink;
   font-size: $type-size-6;
 
   em {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($hero-ink, 0.6);
     font-style: normal;
   }
 }
 
 .hero-profile__education-school {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba($hero-ink, 0.7);
   font-size: $type-size-6;
 }
 
