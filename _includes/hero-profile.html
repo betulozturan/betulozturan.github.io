@@ -28,12 +28,13 @@
   <div class="hero-profile__band">
     {% if page.education %}
       <div class="wrapper hero-profile__education-section">
-        <p class="hero-profile__section-title">Education</p>
+        <p class="hero-profile__section-title hero-profile__section-title--center">Education</p>
         <ul class="hero-profile__education">
           {% for entry in page.education %}
             <li>
-              <span class="hero-profile__education-degree">{{ entry.degree }}{% if entry.note %} <em>({{ entry.note }})</em>{% endif %}</span>
               <span class="hero-profile__education-school">{{ entry.school }}</span>
+              {% if entry.note %}<span class="hero-profile__education-note">{{ entry.note }}</span>{% endif %}
+              <span class="hero-profile__education-degree">{{ entry.degree }}</span>
             </li>
           {% endfor %}
         </ul>

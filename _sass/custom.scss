@@ -346,6 +346,11 @@ body.has-hero-banner {
     font-size: $type-size-5;
     margin: 1.5em 0 0.5em;
   }
+
+  &--center {
+    text-align: center;
+    margin: 0 0 1.5em;
+  }
 }
 
 .hero-profile__bio-text {
@@ -366,37 +371,43 @@ body.has-hero-banner {
 }
 
 .hero-profile__education {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em 3em;
   margin: 0;
   padding: 0;
   list-style: none;
 
-  li {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.5em;
-    padding: 0.6em 0;
-    border-top: 1px solid rgba($hero-ink, 0.2);
+  @include breakpoint($medium) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    &:last-child {
-      padding-bottom: 0;
-    }
+  li {
+    text-align: center;
   }
 }
 
 .hero-profile__education-degree {
-  color: $hero-ink;
-  font-size: $type-size-5;
+  display: block;
+  color: rgba($hero-ink, 0.85);
+  font-size: $type-size-6;
+}
 
-  em {
-    color: rgba($hero-ink, 0.6);
-    font-style: normal;
-  }
+.hero-profile__education-note {
+  display: block;
+  color: $hero-ink;
+  font-size: $type-size-6;
+  font-style: italic;
+  margin: 0.15em 0;
 }
 
 .hero-profile__education-school {
-  color: rgba($hero-ink, 0.7);
-  font-size: $type-size-5;
+  display: block;
+  color: $hero-ink;
+  font-family: $font-heading;
+  font-weight: bold;
+  font-size: $type-size-4;
+  margin: 0 0 0.15em;
 }
 
 .hero-profile__wave {
