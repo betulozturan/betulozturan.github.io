@@ -77,6 +77,12 @@ body.has-hero-banner {
       transition: background-color 0.25s ease-in-out;
     }
 
+    .greedy-nav,
+    .masthead__menu-item {
+      background: transparent;
+      transition: background-color 0.25s ease-in-out;
+    }
+
     .masthead__menu-item a,
     #theme-icon {
       color: #fff;
@@ -89,6 +95,11 @@ body.has-hero-banner {
 
     &::after {
       background: var(--global-border-color);
+    }
+
+    .greedy-nav,
+    .masthead__menu-item {
+      background: var(--global-bg-color);
     }
 
     .masthead__menu-item a {
@@ -150,7 +161,9 @@ body.has-hero-banner {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 4em 1em 2.5em;
+  /* bottom padding clears the wave divider's 60px overlap zone
+     (see .hero-profile__wave--top, which pulls up into this banner) */
+  padding: 4em 1em 5.5em;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65) 70%, rgba(0, 0, 0, 0.75));
 }
 
@@ -193,6 +206,12 @@ body.has-hero-banner {
   background-color: $accent-color;
   padding: 2em 1em 3em;
   overflow: hidden;
+}
+
+.hero-profile__education-section {
+  margin-bottom: 2.5em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid rgba($hero-ink, 0.2);
 }
 
 .hero-profile__inner {
@@ -318,7 +337,7 @@ body.has-hero-banner {
 
 .hero-profile__education-degree {
   color: $hero-ink;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 
   em {
     color: rgba($hero-ink, 0.6);
@@ -328,7 +347,7 @@ body.has-hero-banner {
 
 .hero-profile__education-school {
   color: rgba($hero-ink, 0.7);
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 }
 
 .hero-profile__wave {

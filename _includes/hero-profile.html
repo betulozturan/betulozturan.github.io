@@ -26,6 +26,20 @@
   {% endif %}
 
   <div class="hero-profile__band">
+    {% if page.education %}
+      <div class="wrapper hero-profile__education-section">
+        <p class="hero-profile__section-title">Education</p>
+        <ul class="hero-profile__education">
+          {% for entry in page.education %}
+            <li>
+              <span class="hero-profile__education-degree">{{ entry.degree }}{% if entry.note %} <em>({{ entry.note }})</em>{% endif %}</span>
+              <span class="hero-profile__education-school">{{ entry.school }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
     <div class="wrapper hero-profile__inner">
       <div class="hero-profile__identity">
         {% if site.author.avatar %}
@@ -72,18 +86,6 @@
         {% if page.interests %}
           <p class="hero-profile__section-title hero-profile__section-title--sub">Interests</p>
           <p class="hero-profile__interests-text">{{ page.interests | join: " · " }}</p>
-        {% endif %}
-
-        {% if page.education %}
-          <p class="hero-profile__section-title hero-profile__section-title--sub">Education</p>
-          <ul class="hero-profile__education">
-            {% for entry in page.education %}
-              <li>
-                <span class="hero-profile__education-degree">{{ entry.degree }}{% if entry.note %} <em>({{ entry.note }})</em>{% endif %}</span>
-                <span class="hero-profile__education-school">{{ entry.school }}</span>
-              </li>
-            {% endfor %}
-          </ul>
         {% endif %}
       </div>
     </div>
