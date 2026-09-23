@@ -93,3 +93,25 @@
     </svg>
   </div>
 </div>
+
+{% if page.header.overlay_image %}
+<script>
+(function () {
+  var banner = document.querySelector(".hero-profile__banner");
+  var masthead = document.querySelector(".masthead");
+  if (!banner || !masthead) return;
+
+  function onScroll() {
+    var threshold = banner.offsetHeight - 80;
+    if (window.scrollY > threshold) {
+      masthead.classList.add("masthead--solid");
+    } else {
+      masthead.classList.remove("masthead--solid");
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+{% endif %}

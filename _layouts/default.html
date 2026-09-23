@@ -11,7 +11,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body{% if page.hero_profile %} class="has-hero-banner"{% endif %}>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

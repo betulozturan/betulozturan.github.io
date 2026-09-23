@@ -58,6 +58,50 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /*
+   Transparent nav over the hero banner, solidifying on scroll (About
+   page only, via the has-hero-banner body class). The photo runs
+   full-bleed behind the fixed masthead instead of starting below it,
+   and a small script (in hero-profile.html) toggles .masthead--solid
+   once the banner has scrolled out of view.
+   ========================================================================== */
+
+body.has-hero-banner {
+  padding-top: 0 !important;
+
+  .masthead {
+    background: transparent;
+    transition: background-color 0.25s ease-in-out;
+
+    &::after {
+      background: transparent;
+      transition: background-color 0.25s ease-in-out;
+    }
+
+    .masthead__menu-item a,
+    #theme-icon {
+      color: #fff;
+      transition: color 0.25s ease-in-out;
+    }
+  }
+
+  .masthead.masthead--solid {
+    background: var(--global-bg-color);
+
+    &::after {
+      background: var(--global-border-color);
+    }
+
+    .masthead__menu-item a {
+      color: var(--global-masthead-link-color);
+    }
+
+    #theme-icon {
+      color: var(--global-text-color);
+    }
+  }
+}
+
+/*
    Hero profile band (About page)
    ========================================================================== */
 
@@ -88,6 +132,17 @@ h1, h2, h3, h4, h5, h6,
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero-profile__banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  z-index: 1;
 }
 
 .hero-profile__banner-overlay {
