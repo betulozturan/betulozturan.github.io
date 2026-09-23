@@ -2,10 +2,21 @@
 
 <div class="hero-profile">
   {% if page.header.overlay_image %}
-    <img
-      src="{{ page.header.overlay_image | prepend: '/images/' | prepend: base_path }}"
-      alt=""
-      class="hero-profile__photo">
+    <div class="hero-profile__banner">
+      <img
+        src="{{ page.header.overlay_image | prepend: '/images/' | prepend: base_path }}"
+        alt=""
+        class="hero-profile__photo">
+
+      <div class="hero-profile__banner-overlay">
+        <div class="wrapper">
+          <h1 class="hero-profile__banner-name">{{ site.author.name }}</h1>
+          {% if site.author.bio %}<p class="hero-profile__banner-title">{{ site.author.bio }}</p>{% endif %}
+          {% if site.author.location %}<p class="hero-profile__banner-location">{{ site.author.location }}</p>{% endif %}
+          <a href="{{ base_path }}/files/Betul_Ozturan.pdf" class="btn btn--light-outline hero-profile__cv-btn" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </div>
   {% endif %}
 
   {% if page.header.overlay_image %}
@@ -23,9 +34,6 @@
             alt="{{ site.author.name }}"
             class="hero-profile__avatar">
         {% endif %}
-
-        <h1 class="hero-profile__name">{{ site.author.name }}</h1>
-        {% if site.author.bio %}<p class="hero-profile__title">{{ site.author.bio }}</p>{% endif %}
 
         <ul class="hero-profile__socials">
           {% if site.author.email %}
@@ -52,8 +60,6 @@
         </ul>
 
         {% if site.author.email %}<p class="hero-profile__email">{{ site.author.email }}</p>{% endif %}
-
-        <a href="{{ base_path }}/files/Betul_Ozturan.pdf" class="btn btn--light-outline hero-profile__cv-btn" target="_blank" rel="noopener">Download CV</a>
       </div>
 
       <div class="hero-profile__about">
