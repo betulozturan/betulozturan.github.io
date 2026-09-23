@@ -389,12 +389,14 @@ body.has-hero-banner {
 
 .hero-profile__education-degree {
   display: block;
+  width: 100%;
   color: rgba($hero-ink, 0.85);
   font-size: $type-size-6;
 }
 
 .hero-profile__education-note {
   display: block;
+  width: 100%;
   color: $hero-ink;
   font-size: $type-size-6;
   font-style: italic;

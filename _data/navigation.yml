@@ -16,8 +16,6 @@ main:
     children:
       - title: "Publications"
         url: /publications/
-      - title: "Current Projects"
-        url: /current-projects/
       - title: "Teaching & Research Statement"
         url: /teaching-research-statement/
 
