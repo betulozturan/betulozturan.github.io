@@ -11,8 +11,15 @@ main:
   - title: "CV"
     url: /files/Betul_Ozturan.pdf
 
-  - title: "Publications"
-    url: /publications/
+  - title: "Research & Teaching"
+    url: "#"
+    children:
+      - title: "Publications"
+        url: /publications/
+      - title: "Current Projects"
+        url: /current-projects/
+      - title: "Teaching & Research Statement"
+        url: /teaching-research-statement/
 
   - title: "Talks"
     url: /talks/

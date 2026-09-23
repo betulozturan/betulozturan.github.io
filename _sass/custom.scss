@@ -5,20 +5,16 @@
 $accent-color: #d3b28e;
 $hero-ink: #2b2015;
 
-$font-heading: "Libre Caslon Display", Georgia, "Times New Roman", serif;
-$font-body: "Work Sans", -apple-system, "San Francisco", "Roboto", "Segoe UI", Arial, sans-serif;
+$font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+$font-body: "Inter", -apple-system, "San Francisco", "Roboto", "Segoe UI", Arial, sans-serif;
 
 /*
-   Fonts: Libre Caslon Display for every heading/title-level element,
-   Work Sans for everything else (body, buttons, nav). One consistent
-   rule for the whole site rather than one-off per-component styling.
-
-   Libre Caslon Display only ships a single (regular) weight, and this
-   browser silently ignores font-weight: bold on it (confirmed even
-   with an inline !important override, so it isn't a bug in this
-   stylesheet) — text-stroke fakes the bold weight instead, using
-   currentColor so it matches whatever text color the heading has on
-   any given background (hero band, white page, etc.).
+   Fonts: Playfair Display for every heading/title-level element,
+   Inter for everything else (body, buttons, nav), matching
+   siennanordquist.com. One consistent rule for the whole site rather
+   than one-off per-component styling. Unlike the previous Libre
+   Caslon Display, Playfair Display ships a real bold weight, so no
+   text-stroke fakery is needed here.
    ========================================================================== */
 
 body {
@@ -30,8 +26,7 @@ h1, h2, h3, h4, h5, h6,
 .pub-entry__title,
 .talk-title {
   font-family: $font-heading;
-  font-weight: normal;
-  -webkit-text-stroke: 0.6px currentColor;
+  font-weight: bold;
 }
 
 .masthead__inner-wrap,
@@ -55,6 +50,53 @@ h1, h2, h3, h4, h5, h6,
 .masthead,
 .masthead__inner-wrap {
   min-height: 70px;
+}
+
+/*
+   Masthead dropdown ("Research & Teaching" with Publications /
+   Current Projects / Teaching & Research Statement). Hover-driven on
+   desktop; the click handler in masthead.html toggles the same
+   --open class for touch devices.
+   ========================================================================== */
+
+.masthead__menu-item--dropdown {
+  position: relative;
+
+  .masthead__dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    cursor: pointer;
+  }
+
+  .masthead__dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    margin: 0;
+    padding: 0.5em 0;
+    list-style: none;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 30;
+
+    li a {
+      display: block;
+      margin: 0;
+      padding: 0.5em 1em;
+      white-space: nowrap;
+      font-size: $type-size-6;
+    }
+  }
+
+  &:hover .masthead__dropdown-menu,
+  &.masthead__menu-item--open .masthead__dropdown-menu {
+    display: block;
+  }
 }
 
 /*
@@ -87,6 +129,14 @@ body.has-hero-banner {
     #theme-icon {
       color: #fff;
       transition: color 0.25s ease-in-out;
+    }
+
+    /* the dropdown panel always has its own solid white background
+       (see .masthead__dropdown-menu), regardless of transparent vs
+       solid nav state, so its links need to stay dark, not inherit
+       the white nav-over-photo text color above */
+    .masthead__dropdown-menu a {
+      color: var(--global-masthead-link-color);
     }
   }
 
@@ -172,7 +222,6 @@ body.has-hero-banner {
   font-size: 2.4em;
   line-height: 1.05;
   margin: 0 0 0.15em;
-  -webkit-text-stroke-color: #fff;
 
   @include breakpoint($medium) {
     font-size: 4em;
@@ -203,7 +252,7 @@ body.has-hero-banner {
 
 .hero-profile__band {
   position: relative;
-  background-color: $accent-color;
+  background-color: var(--global-bg-color);
   padding: 2em 1em 3em;
   overflow: hidden;
 }
@@ -371,7 +420,7 @@ body.has-hero-banner {
   margin-top: -60px;
 
   path {
-    fill: $accent-color;
+    fill: var(--global-bg-color);
   }
 }
 

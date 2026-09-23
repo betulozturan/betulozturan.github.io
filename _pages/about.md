@@ -10,14 +10,17 @@ about_bio:
   - "My dissertation project investigates **rebel group alliances** and their long-term influence on postwar governance. To do this, I combine computational methods, like **text analysis**, **social network analysis**, and **event data modeling**. I also work with large datasets on political violence, often building tools that help researchers and the public better understand conflict dynamics."
 education:
   - degree: "Ph.D. in Political Science"
-    school: "Boston College"
-    note: "in progress"
-  - degree: "M.A. in International Security Studies"
-    school: "Charles University, Prague"
+    school: "Boston College, Boston, MA"
+    note: "2022-Present"
+  - degree: "M.A. in International Security Studies (Double Degree)"
+    school: "Charles University, Prague, Czechia"
+    note: "2021"
   - degree: "M.A. in Political Science and Public Administration"
-    school: "University of Konstanz"
+    school: "University of Konstanz, Konstanz, Germany"
+    note: "2021"
   - degree: "B.A. in Political Science and International Relations"
-    school: "Boğaziçi University, Istanbul"
+    school: "Boğaziçi University, Istanbul, Turkey"
+    note: "2018"
 redirect_from: 
   - /about/
   - /about.html
