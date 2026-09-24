@@ -102,14 +102,22 @@
 (function () {
   var banner = document.querySelector(".hero-profile__banner");
   var masthead = document.querySelector(".masthead");
+  var navTitle = document.querySelector(".masthead__menu-item--lg");
   if (!banner || !masthead) return;
+
+  var fadeDistance = 120;
 
   function onScroll() {
     var threshold = banner.offsetHeight - 80;
-    if (window.scrollY > threshold) {
-      masthead.classList.add("masthead--solid");
-    } else {
-      masthead.classList.remove("masthead--solid");
+    var solid = window.scrollY > threshold;
+    masthead.classList.toggle("masthead--solid", solid);
+
+    if (navTitle) {
+      var progress = (window.scrollY - threshold) / fadeDistance;
+      progress = Math.max(0, Math.min(1, progress));
+      navTitle.style.opacity = progress;
+      navTitle.style.transform = "translateY(" + (1 - progress) * 8 + "px)";
+      navTitle.style.pointerEvents = progress > 0.5 ? "auto" : "none";
     }
   }
 
