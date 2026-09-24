@@ -16,6 +16,8 @@ main:
     children:
       - title: "Publications"
         url: /publications/
+      - title: "Working Papers"
+        url: /working-papers/
       - title: "Teaching & Research Statement"
         url: /teaching-research-statement/
 
