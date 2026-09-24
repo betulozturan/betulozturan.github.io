@@ -8,6 +8,19 @@ $hero-ink: #2b2015;
 $font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
 $font-body: "Inter", -apple-system, "San Francisco", "Roboto", "Segoe UI", Arial, sans-serif;
 
+/* Education/About me band text color as a CSS custom property (not
+   just the $hero-ink SCSS variable) so it can flip for dark mode: the
+   band's background already uses var(--global-bg-color) and switches
+   to dark gray automatically, but $hero-ink is a fixed dark brown, so
+   without this the text stayed dark-on-dark and read as solid black. */
+:root {
+  --hero-ink-rgb: 43, 32, 21;
+}
+
+html[data-theme="dark"] {
+  --hero-ink-rgb: 240, 232, 220;
+}
+
 /*
    Fonts: Playfair Display for every heading/title-level element,
    Inter for everything else (body, buttons, nav), matching
@@ -299,7 +312,7 @@ body.has-hero-banner {
 .hero-profile__education-section {
   margin-bottom: 2.5em;
   padding-bottom: 2em;
-  border-bottom: 1px solid rgba($hero-ink, 0.2);
+  border-bottom: 1px solid rgba(var(--hero-ink-rgb), 0.2);
 }
 
 .hero-profile__inner {
@@ -347,17 +360,17 @@ body.has-hero-banner {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba($hero-ink, 0.12);
-    color: $hero-ink;
+    background: rgba(var(--hero-ink-rgb), 0.12);
+    color: rgb(var(--hero-ink-rgb));
 
     &:hover {
-      background: rgba($hero-ink, 0.22);
+      background: rgba(var(--hero-ink-rgb), 0.22);
     }
   }
 }
 
 .hero-profile__email {
-  color: rgba($hero-ink, 0.85);
+  color: rgba(var(--hero-ink-rgb), 0.85);
   font-size: $type-size-6;
   margin: 0 0 0.75em;
 }
@@ -367,7 +380,7 @@ body.has-hero-banner {
 }
 
 .hero-profile__section-title {
-  color: $hero-ink;
+  color: rgb(var(--hero-ink-rgb));
   font-size: $type-size-3;
   margin: 0 0 0.75em;
 
@@ -383,18 +396,18 @@ body.has-hero-banner {
 }
 
 .hero-profile__bio-text {
-  color: rgba($hero-ink, 0.9);
+  color: rgba(var(--hero-ink-rgb), 0.9);
   font-size: $type-size-5;
   line-height: 1.6;
   margin: 0 0 1em;
 
   strong {
-    color: $hero-ink;
+    color: rgb(var(--hero-ink-rgb));
   }
 }
 
 .hero-profile__interests-text {
-  color: rgba($hero-ink, 0.85);
+  color: rgba(var(--hero-ink-rgb), 0.85);
   font-size: $type-size-6;
   margin: 0;
 }
@@ -419,14 +432,14 @@ body.has-hero-banner {
 .hero-profile__education-degree {
   display: block;
   width: 100%;
-  color: rgba($hero-ink, 0.85);
+  color: rgba(var(--hero-ink-rgb), 0.85);
   font-size: $type-size-6;
 }
 
 .hero-profile__education-note {
   display: block;
   width: 100%;
-  color: $hero-ink;
+  color: rgb(var(--hero-ink-rgb));
   font-size: $type-size-6;
   font-style: italic;
   margin: 0.15em 0;
@@ -434,7 +447,7 @@ body.has-hero-banner {
 
 .hero-profile__education-school {
   display: block;
-  color: $hero-ink;
+  color: rgb(var(--hero-ink-rgb));
   font-family: $font-heading;
   font-weight: bold;
   font-size: $type-size-4;
