@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6,
 .masthead__menu-item:not(#theme-toggle) > a {
   font-family: $font-heading;
   font-weight: bold;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 }
 
 /*
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6,
 
 .masthead,
 .masthead__inner-wrap {
-  min-height: 70px;
+  min-height: 84px;
 }
 
 /*
