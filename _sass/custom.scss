@@ -43,9 +43,13 @@ h1, h2, h3, h4, h5, h6,
   font-size: $type-size-4;
 }
 
-.visible-links {
+.greedy-nav .visible-links {
   display: flex;
   align-items: center;
+
+  li {
+    display: block;
+  }
 }
 
 .masthead__menu-item--lg {
