@@ -35,6 +35,11 @@ h1, h2, h3, h4, h5, h6,
   font-family: $font-body;
 }
 
+.masthead__menu-item--lg a {
+  font-family: $font-heading;
+  font-size: $type-size-4;
+}
+
 /*
    Masthead nav: let the nav fill the header so links stay visible
    instead of collapsing into the hamburger menu (the stock template's
@@ -131,6 +136,16 @@ body.has-hero-banner {
       transition: color 0.25s ease-in-out;
     }
 
+    /* the big name is already showing in the hero banner, so hide the
+       small nav-bar title until the banner scrolls out of view (see
+       .masthead--solid below), rather than showing "Betul Ozturan"
+       twice at once */
+    .masthead__menu-item--lg {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-in-out;
+    }
+
     /* the dropdown panel always has its own solid white background
        (see .masthead__dropdown-menu), regardless of transparent vs
        solid nav state, so its links need to stay dark, not inherit
@@ -154,6 +169,11 @@ body.has-hero-banner {
 
     .masthead__menu-item a {
       color: var(--global-masthead-link-color);
+    }
+
+    .masthead__menu-item--lg {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     #theme-icon {
@@ -219,13 +239,12 @@ body.has-hero-banner {
 
 .hero-profile__banner-name {
   color: #fff;
-  font-style: italic;
-  font-size: 3em;
+  font-size: 2.4em;
   line-height: 1.05;
-  margin: 0 0 0.2em;
+  margin: 0 0 0.15em;
 
   @include breakpoint($medium) {
-    font-size: 5.5em;
+    font-size: 4em;
   }
 }
 
