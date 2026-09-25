@@ -411,9 +411,11 @@ body.has-hero-banner {
   font-size: $type-size-5;
   line-height: 1.6;
   margin: 0 0 1em;
+  text-align: justify;
 
-  strong {
+  em {
     color: rgb(var(--hero-ink-rgb));
+    font-style: italic;
   }
 }
 
