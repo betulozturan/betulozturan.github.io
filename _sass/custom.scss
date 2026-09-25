@@ -412,6 +412,23 @@ body.has-hero-banner {
   margin: 0;
 }
 
+/* Match the page body below the hero band ("What is going on", "Teaching",
+   "Other things I do") to the Education/About me band: same warm ink color
+   instead of the theme's stark default black/white text. */
+.page--full .page__content {
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(var(--hero-ink-rgb));
+  }
+
+  p, li {
+    color: rgba(var(--hero-ink-rgb), 0.9);
+  }
+
+  strong {
+    color: rgb(var(--hero-ink-rgb));
+  }
+}
+
 .hero-profile__education {
   display: grid;
   grid-template-columns: 1fr;
