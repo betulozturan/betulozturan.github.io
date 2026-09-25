@@ -57,14 +57,12 @@
           {% if site.author.github %}
             <li><a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
           {% endif %}
+          <li class="hero-profile__socials-break" aria-hidden="true"></li>
           {% if site.author.bluesky %}
             <li><a href="https://bsky.app/profile/{{ site.author.bluesky }}" aria-label="Bluesky"><i class="fab fa-fw fa-bluesky" aria-hidden="true"></i></a></li>
           {% endif %}
           {% if site.author.linkedin %}
             <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i></a></li>
-          {% endif %}
-          {% if site.author.twitter %}
-            <li><a href="https://twitter.com/{{ site.author.twitter }}" aria-label="X (formerly Twitter)"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i></a></li>
           {% endif %}
         </ul>
 

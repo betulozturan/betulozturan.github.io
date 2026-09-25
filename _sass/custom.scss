@@ -328,12 +328,13 @@ body.has-hero-banner {
 
   @include breakpoint($medium) {
     text-align: left;
+    flex: 1 1 0;
   }
 }
 
 .hero-profile__avatar {
-  width: 260px;
-  height: 260px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.9);
@@ -351,6 +352,12 @@ body.has-hero-banner {
 
   @include breakpoint($medium) {
     justify-content: flex-start;
+  }
+
+  &-break {
+    flex-basis: 100%;
+    width: 0;
+    height: 0;
   }
 
   a {
@@ -377,6 +384,10 @@ body.has-hero-banner {
 
 .hero-profile__about {
   flex: 1 1 320px;
+
+  @include breakpoint($medium) {
+    flex: 2 1 0;
+  }
 }
 
 .hero-profile__section-title {
